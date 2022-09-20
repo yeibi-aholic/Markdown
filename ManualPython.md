@@ -1,6 +1,6 @@
 # **MANUAL PYTHON**
 
-1. **[Introducción a Python](#introduccion-a-python)**
+1. **[Introducción a Python](#introducción-a-python)**
 2. **[Tipos de Datos Primitivos Simples](#tipos-de-datos-primitivos-simples)**
 3. **[Entrada y Salida por Terminal](#entrada-y-salida-por-terminal)**
 4. **[Condicionales](#condicionales)**
@@ -9,17 +9,17 @@
 7. **[Tuplas](#tuplas)**
 8. **[Diccionarios](#diccionarios)**
 9. **[Funciones](#funciones)**
-10. **[Programación funcional](#programacion-funcional)**
-11. **[Comprensión de Colecciones](#comprension-de-colecciones)**
+10. **[Programación funcional](#programación-funcional)**
+11. **[Comprensión de Colecciones](#comprensión-de-colecciones)**
 12. **[Ficheros](#ficheros)**
 13. **[Excepciones](#excepciones)**
-14. **[Programación orientada a Objetos](#programacion-orientada-a-objetos)**
-15. **[Módulos](#modulos)**
-16. **[Librería Datetime](#libreria-datetime)**
-17. **[Librería Numpy](#libreria-numpy)**
-18. **[Librería Pandas](#libreria-pandas)**
-19. **[Librería Matplotlib](#libreria-matplotlib)**
-20. **[Depuración de código](#depuracion-de-codigo)**
+14. **[Programación orientada a Objetos](#programación-orientada-a-objetos)**
+15. **[Módulos](#módulos)**
+16. **[Librería Datetime](#librería-datetime)**
+17. **[Librería Numpy](#librería-numpy)**
+18. **[Librería Pandas](#librería-pandas)**
+19. **[Librería Matplotlib](#librería-matplotlib)**
+20. **[Depuración de código](#depuración-de-código)**
 
 ## **[<](#manual-python)**
 ## Introducción a Python
