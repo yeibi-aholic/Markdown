@@ -25,7 +25,7 @@
 ## Introducción a Python
 ---
 ### ¿Qué es Python?
-*[Python](https://www.python.org/)* es un lenguaje de programación de alto nivel multiparadigma que permite:
+[Python](https://www.python.org/) es un lenguaje de programación de alto nivel multiparadigma que permite:
 
 - Programación imperativa
 - Programación funcional
