@@ -193,7 +193,7 @@ Secuencia de caracteres alfanuméricos que representan texto. Se escriben entre 
 Cada carácter tiene asociado un índice que permite acceder a él.
 
 |Cadena|P|y|t|h|o|n|
-|:-:|:-:|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |Índice positivo|0|1|2|3|4|5|
 |Índice negativo|-6|-5|-4|-3|-2|-1|
 
