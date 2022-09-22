@@ -1562,7 +1562,7 @@ Esta instrucción ejecuta el primer bloque de código y si se produce un error q
 
 
 ## **[<](#manual-python)**
-## Programación orientada a Objetos
+## Programación Orientada a Objetos (*POO*)
 ---
 ### Objetos
 Python también permite la *programación orientada a objetos*, que es un paradigma de programación en la que los datos y las operaciones que pueden realizarse con esos datos se agrupan en unidades lógicas llamadas **objetos**.
