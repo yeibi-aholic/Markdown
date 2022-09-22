@@ -13,7 +13,7 @@
 11. **[Comprensión de Colecciones](#comprensión-de-colecciones)**
 12. **[Ficheros](#ficheros)**
 13. **[Excepciones](#excepciones)**
-14. **[Programación orientada a Objetos](#programación-orientada-a-objetos)**
+14. **[Programación Orientada a Objetos)](#programación-orientada-a-objetos)**
 15. **[Módulos](#módulos)**
 16. **[Librería Datetime](#librería-datetime)**
 17. **[Librería Numpy](#librería-numpy)**
@@ -1562,7 +1562,7 @@ Esta instrucción ejecuta el primer bloque de código y si se produce un error q
 
 
 ## **[<](#manual-python)**
-## Programación Orientada a Objetos (*POO*)
+## Programación Orientada a Objetos
 ---
 ### Objetos
 Python también permite la *programación orientada a objetos*, que es un paradigma de programación en la que los datos y las operaciones que pueden realizarse con esos datos se agrupan en unidades lógicas llamadas **objetos**.
