@@ -13,7 +13,7 @@
 11. **[Comprensión de Colecciones](#comprensión-de-colecciones)**
 12. **[Ficheros](#ficheros)**
 13. **[Excepciones](#excepciones)**
-14. **[Programación Orientada a Objetos)](#programación-orientada-a-objetos)**
+14. **[Programación Orientada a Objetos](#programación-orientada-a-objetos)**
 15. **[Módulos](#módulos)**
 16. **[Librería Datetime](#librería-datetime)**
 17. **[Librería Numpy](#librería-numpy)**
