@@ -3445,6 +3445,8 @@ ax.plot(dias, temperaturas['Barcelona'], linestyle = 'dotted')
 plt.show()
 ~~~~
 
+![](https://aprendeconalf.es/docencia/python/manual/img/lineas-estilo.png)                           
+                           
 #### Títulos
 Para añadir un título principal al gráfico se utiliza el siguiente método:
 - *ax.set_title(titulo, loc=alineacion, fontdict=fuente)* : Añade un título con el contenido de la cadena *titulo* a los ejes *ax*. El parámetro *loc* indica la alineación del título, que puede ser *'left'* (izquierda), *'center'* (centro) o *'right'* (derecha), y el parámetro *fontdict* indica mediante un diccionario las características de la fuente (la el tamaño *fontisize*, el grosor *fontweight* o el color *color*).
