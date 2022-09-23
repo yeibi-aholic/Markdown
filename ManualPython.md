@@ -214,9 +214,9 @@ Realizan operaciones en los operandos bit a bit (en binario)
 13
 >>> x & y   # 01010 AND 00111 --> 00010
 2
->>> y<<1    # 00111 --> 01110
+>>> y << 1    # 00111 --> 01110
 14
->>> y>>1    # 00111 --> 00011
+>>> y >> 1    # 00111 --> 00011
 1
 >>> ~x      # 01010 --> -(01010 + 00001) = -01011
 -11
@@ -630,7 +630,7 @@ n
 ## Listas
 ---
 ### Listas
-Una *lista* es una secuencias ordenadas de objetos de distintos tipos.
+Una *lista* es una secuencia ordenada de objetos de distintos tipos.
 
 Se construyen poniendo los elementos entre corchetes *[ ]* separados por comas.
 
@@ -737,8 +737,8 @@ False
 
 #### Operaciones que modifican una lista
 - *l1 + l2* : Crea una nueva lista concatenan los elementos de la listas *l1* y *l2*.
-- *l.append(dato)* : Añade dato al final de la lista *l*.
-- *l.extend(sequencia)* : Añade los datos de sequencia al final de la lista *l*.
+- *l.append(dato)* : Añade *dato* al final de la lista *l*.
+- *l.extend(sequencia)* : Añade los datos de *sequencia* al final de la lista *l*.
 - *l.insert(índice, dato)* : Inserta *dato* en la posición *índice* de la lista *l* y desplaza los elementos una posición a partir de la posición *índice*.
 - *l.remove(dato)* : Elimina el primer elemento con valor *dato* en la lista *l* y desplaza los que están por detrás de él una posición hacia delante.
 - *l.pop([índice])* : Devuelve el dato en la posición *índice* y lo elimina de la lista *l*, desplazando los elementos por detrás de él una posición hacia delante. Por defecto elimina el último valor de la lista.
