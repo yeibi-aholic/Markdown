@@ -967,7 +967,7 @@ dict_items([('nombre', 'Alfredo'), ('despacho', 218), ('email', 'asalber@ceu.es'
 #### Copia de diccionarios
 Existen dos formas de copiar diccionarios:
 - **Copia por referencia** *d1 = d2* : Asocia la la variable *d1* el mismo diccionario que tiene asociado la variable *d2*, es decir, ambas variables apuntan a la misma dirección de memoria. Cualquier cambio que hagamos a través de *l1* o *l2* afectará al mismo diccionario.
-- **Copia por valor** *d1 = list(d2)* : Crea una copia del diccionario asociado a *d2* en una dirección de memoria diferente y se la asocia a *d1*. Las variables apuntan a direcciones de memoria diferentes que contienen los mismos datos. Cualquier cambio que hagamos a través de *l1* no afectará al diccionario de *l2* y viceversa.
+- **Copia por valor** *d1 = dict(d2)* : Crea una copia del diccionario asociado a *d2* en una dirección de memoria diferente y se la asocia a *d1*. Las variables apuntan a direcciones de memoria diferentes que contienen los mismos datos. Cualquier cambio que hagamos a través de *l1* no afectará al diccionario de *l2* y viceversa.
 
 ~~~~ python
 >>> a = {1:'A', 2:'B', 3:'C'}
@@ -983,7 +983,7 @@ Existen dos formas de copiar diccionarios:
 ~~~~
 ~~~~ python
 >>> a = {1:'A', 2:'B', 3:'C'}
->>> # copia por referencia
+>>> # copia por valor
 >>> b = dict(a)
 >>> b
 {1:'A', 2:'B', 3:'C'}
