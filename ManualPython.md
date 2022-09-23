@@ -804,7 +804,7 @@ Existen dos formas de copiar listas:
 ## Tuplas
 ---
 ### Tuplas
-Una tupla es una secuencias ordenadas de objetos de distintos tipos.
+Una tupla es una secuencia ordenada de objetos de distintos tipos.
 
 Se construyen poniendo los elementos entre corchetes *( )* separados por comas.
 
