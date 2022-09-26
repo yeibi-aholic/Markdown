@@ -624,6 +624,16 @@ n
 ...
 1, 3, 5, 7, 9, >>>
 ~~~~
+~~~~ python
+>>> for i in range(1, 10):
+...     if i == 5:
+...         continue
+...     if i == 9:
+...         break
+...     print(i, end=", ")
+...
+1, 2, 3, 4, 6, 7, 8, >>>
+~~~~
 
 
 ## **[<](#manual-python)**
@@ -1266,6 +1276,129 @@ area_triangulo(base, altura)
         Un número real con el área del triángulo de base y altura especificadas.
 ~~~~
 
+### Generadores (*yield*)
+Cuando trabajamos con funciones, la ejecución comienza en la primera línea y continúa hasta que encuentra un *return*, *exception* o el fin de la función. Estas subrutinas devuelven un solo valor a la vez y retornan el control de la ejecución.
+
+En Python, los generadores son funciones que: 
+- Tienen la capacidad de producir series de valores en tiempo de ejecución. 
+- Pueden ser pausadas para recuperar más tarde el control de la ejecución. 
+- Permiten acelerar búsquedas.
+- Permiten crear bucles más rápidos.
+
+A diferencia de las funciones anteriores, los generadores terminan con *yield* en vez de *return*. 
+
+~~~~ python
+def <nombre-generador>(<parametros>):
+    bloque código
+    yield <objeto>    
+~~~~
+ 
+#### Llamar a los elementos de un generador
+- *next(i)* : Devuelve el siguiente elemento de un iterador *i*. 
+- *next(i, ifin)* : Devuelve el siguiente elemento de un iterador *i*. Cuando se llega al final del iterador *i* se devuelve el valor *ifin*.
+> ⚠️ Cuando se llama a la función *next()* para una lista *i*, la próxima que se emplee la función para la misma lista *i* el valor que devuelva será el siguiente al anterior valor devuleto. Por defecto, cuando se llega al final de la lista *i*, se devuelve el error *StopIteration*.
+
+~~~~ python
+>>> def pares():    # generador de números pares
+...     i = 1
+...     while True:     # bucle infinito de números pares
+...         yield i*2
+...         i += 1
+...
+>>> for i in pares():   # imprime los números pares a la vez que se generan
+...     print(i)
+2
+4
+6
+..
+1000
+1002
+1004
+..
+~~~~
+~~~~ python
+>>> def pares():    # generador de números pares
+...     i = 1
+...     while i < 4:
+...         yield i*2
+...         i += 1
+...
+>>> list = pares()  # lista con los primeros 3 números pares
+[2, 4, 6]
+>>> print(next(list))
+2
+>>> print(next(list))
+4
+>>> print(next(list))
+6
+>>> print(next(list , 'Fin de la generación'))
+'Fin de la generación'
+~~~~
+
+- *g.send(valor)* : Introduce un valor *valor* en el generador *g* a partir de la última línea ejecutada. La primera vez que se emplea esta función se debe introducir el valor *None* en *valor* al no existir ningún *yield* previo.
+
+~~~~ python
+>>> def primeros_primos():
+...     n = 1
+...     while True:
+...         if es_primo(n):
+...             n = yield n
+...         n += 1
+...       
+>>> def es_primo(n):    # función que verifica si un número es primo
+...     if n > 1:
+...         if n == 2:
+...             return True
+...         if n % 2 == 0:
+...             return False
+...         for i in range(3, ((n // 2) + 1), 2):
+...             if n % i == 0:
+...                 return False
+...         return True
+...     return False
+...  
+>>> numeros = [10 , 20 , 30 , 40 , 50]
+>>> generador = primeros_primos()
+>>> generador.send(None)    # Inicialización de .send()
+...
+>>> for numero in numeros:
+...     print(numero , ' --> ' , generator.send(numero))
+10  -->  11
+20  -->  23
+30  -->  31
+40  -->  41
+50  -->  53
+~~~~
+
+Si quisiermaos simplicar un *yield* en un bucle anidado de una "lista de listas" se podría emplear la salida *yield from*.
+> Bucle anidado:
+~~~~ python
+def generador(elementos):
+    for elemento in elementos:
+        for subelemento in elemento:
+            yield subelemento 
+~~~~
+> Bucle simplificado:
+~~~~ python
+def generador(elementos):
+    for elemento in elementos:
+        yield from elemento 
+~~~~
+
+~~~~ python
+>>> def cities(*ciudades):
+...     for ciudad in ciudades:
+...         yield from ciudad   # yield sobre letra de cada ciudad de lista ciudades
+
+>>> lista_ciudades = cities("Madrid", "Sevilla", "Barcelona")
+>>> print(next(lista_ciudades))
+'M'
+>>> print(next(lista_ciudades))
+'a'
+>>> print(next(lista_ciudades))
+'d'
+~~~~
+
 
 ## **[<](#manual-python)**
 ## Programación funcional
@@ -1320,7 +1453,7 @@ Estas funciones se suelen asociar a una variable o parámetro desde la que hacer
 (4, 10, 18)
 ~~~~
 
-#### Filtrar los elementos de una colección iterable (filter)
+#### Filtrar los elementos de una colección iterable (*filter*)
 - *filter(f, c)* : Devuelve una objeto iterable con los elementos de la colección *c* que devuelven *\<True>* al aplicarles la función *f*. Para convertir el objeto en una lista, tupla o diccionario hay que aplicar explícitamente las funciones *list()*, *tuple()* o *dic()* respectivamente.
 > ⚠️ *f* debe ser una función que recibe un argumento y devuelve un valor booleano.
 ~~~~ python
