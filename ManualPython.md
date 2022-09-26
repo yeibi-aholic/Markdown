@@ -217,7 +217,7 @@ Realizan operaciones en los operandos bit a bit (en binario)
 >>> y << 1    # 00111 --> 01110
 14
 >>> y >> 1    # 00111 --> 00011
-1
+3
 >>> ~x      # 01010 --> -(01010 + 00001) = -01011
 -11
 ~~~~
