@@ -2160,7 +2160,7 @@ datetime.datetime(2020, 12, 25, 13, 30, 5)
     + *%p* (AM o PM)
     + *%C* (fecha y hora completas)
     + *%x* (fecha completa)
-    + *%X* (hora completa).
+    + *%X* (hora completa)
 ~~~~ python
 >>> from datetime import date, time, datetime
 >>> d = datetime.now()
@@ -2190,7 +2190,7 @@ Monday, 13 April, 20
     + *%p* (AM o PM)
     + *%C* (fecha y hora completas)
     + *%x* (fecha completa)
-    + *%X* (hora completa).
+    + *%X* (hora completa)
 ~~~~ python
 >>> from datetime import date, time, datetime
 >>> datetime.strptime('15/4/2020', '%d/%m/%Y')
