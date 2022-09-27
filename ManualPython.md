@@ -1742,6 +1742,37 @@ Esta instrucción ejecuta el primer bloque de código y si se produce un error q
 ¡El fichero no existe!
 ~~~~
 
+#### Generación manual de excepciones
+También se pueden generar manualmente excepciones específicas con la declaración *raise* dentro de una condición. El error de salida puede ser tanto uno predefinido por Python como uno totalmente nuevo.
+~~~~ python
+if <condicion>:
+    raise NombreError ("Definición")
+~~~~
+
+Si se combina con *except* se puede renombrar un error ya predefinido con nuestro propio nombre y mensaje.
+~~~~ python
+try:
+    bloque código 1
+except exception as NombreError:
+    print(NombreError)
+~~~~
+
+~~~~ python
+>>> import math
+...
+>>> def CalcularRaiz(n):
+...     if n < 0:
+...         raise ValueError("El número no puede ser negativo")
+...     else:
+...         return math.sqrt(n)
+...
+>>> try:
+...     print(CalcularRaiz(-1))
+... except ValueError as ErrorNumeroNegativo:
+...     print(ErrorNumeroNegativo)
+El número no puede ser negativo
+~~~~
+
 
 ## **[<](#manual-python)**
 ## Programación Orientada a Objetos
