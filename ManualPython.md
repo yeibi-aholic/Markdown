@@ -1906,7 +1906,7 @@ En la definición de una clase suele haber un método llamado *\_\_init__* que s
 ...         print('El saldo es', self.saldo, '€')
 ...         return
 >>> t = Tarjeta('1111111111', 1000)     # Creación de un objeto con argumentos             
->>> t.muestra_saldo()
+>>> t.mostrar_saldo()
 El saldo es 1000 €
 ~~~~
 
@@ -1943,7 +1943,7 @@ Otro método especial es el método llamado *\_\_str__* que se invoca cada vez q
 ...         return
 ...     def __str__(self):
 ...         return 'Tarjeta número {} con saldo {:.2f}€'.format(self.numero, str(self.saldo))
->>> t = tarjeta('0123456789', 1000) 
+>>> t = Tarjeta('0123456789', 1000) 
 >>> print(t)
 Tarjeta número 0123456789 con saldo 1000.00€
 ~~~~
@@ -1976,9 +1976,9 @@ Para crear un clase a partir de otra existente se utiliza la misma sintaxis que 
 ... 
 >>> t = Tarjeta_descuento('0123456789', 2, 1000)
 >>> t.mostrar_saldo()
-El saldo es 1000 €.
+El saldo es 1000€.
 >>> t.mostrar_descuento()
-Descuento de 2 % en los pagos.
+Descuento de 2% en los pagos.
 ~~~~
 
 La principal ventaja de la herencia es que evita la repetición de código y por tanto los programas son más fáciles de mantener.
