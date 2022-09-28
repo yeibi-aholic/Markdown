@@ -374,7 +374,7 @@ True
 - *c.isdecimal()* : Devuelve *\<True>* si todos los caracteres de la cadena *c* son decimales y *\<False>* en caso contrario.
 - *c.islower()* : Devuelve *\<True>* si todos los caracteres en la cadena *c* están en minúsculas y *\<False>* en caso contrario.
 - *c.isupper()* : Devuelve *\<True>* si todos los caracteres en la cadena *c* están en mayúsculas y *\<False>* en caso contrario.
-- *c.printable()* : Devuelve *\<True>* si la cadena *c* se puede imprimir y *\<False>* en caso contrario. Los caracteres como '\ t' o '\ n' no se pueden imprimir.
+- *c.isprintable()* : Devuelve *\<True>* si la cadena *c* se puede imprimir y *\<False>* en caso contrario. Los caracteres como '\ t' o '\ n' no se pueden imprimir.
 
 #### Cadenas formateadas (*format()*)
 - *c.format(valores)* : Devuelve la cadena *c* tras sustituir los valores de la secuencia valores en los marcadores de posición de *c*. Los marcadores de posición se indican mediante llaves *{}* en la cadena *c*, y el reemplazo de los valores se puede realizar por posición, indicando en número de orden del valor dentro de las llaves, o por nombre, indicando el nombre del valor, siempre y cuando los valores se pasen con el formato nombre = valor.
