@@ -47,7 +47,7 @@ Se ejecuta cada instrucción que introduce el usuario de manera interactiva.
 ~~~~ python
 > python
 >>> name = "Alf"
->>> print("Hola ", name)
+>>> print("Hola", name)
 Hola Alf
 ~~~~
 
@@ -56,7 +56,7 @@ Se leen y se ejecutan una a una todas las instrucciones del fichero.
 ~~~~ python
 # Fichero hola.py
 name = "Alf"
-print("Hola ", name)
+print("Hola", name)
 ~~~~
 ~~~~ python
 > python hola.py
@@ -336,6 +336,7 @@ True
 - *c.center(n)* : Devulve una cadena de longitud *n* con la cedena *c* en el centro.
 - *c1.find(c2)* : Devuelve la posición de la cadena *c2* dentro de la cadena *c1*. Si no encuentra nada devuelve un -1.
 - *c.split(delimitador)* : Devuelve la lista formada por las subcadenas que resultan de partir la cadena *c* usando como delimitador la cadena delimitador. Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
+- *c.strip(caracteres)* : Devuelve la cadena formada tras borrar los caracteres *caracteres* de la cadena *c*. Primero borra desde la izquierda mientras haya caracteres que se encuentren en *caracteres* y después lo mismo por la derecha.
 - *c1.replace(c2 , c3)* : Devuelve una cadena a partir de reemplazar todas las cadena *c2* por la cadena *c3* dentro de la cadena *c1*.
 
 ~~~~ python
@@ -363,6 +364,8 @@ True
 ['A', 'B', 'C']
 >>> 'I love Python'.split()
 ['I', 'love', 'Python']
+>>> '***///>>>*Hola*<<<-+-+-+'.strip('*/+-')
+'>>>*Hola*<<<'
 >>> 'Te quiero'.replace(' quiero' , 'quila')
 'Tequila'
 ~~~~
@@ -1392,12 +1395,12 @@ def <nombre-generador>(<parametros>):
 >>> generador.send(None)    # Inicialización de .send()
 ...
 >>> for numero in numeros:
-...     print(numero , ' --> ' , generator.send(numero))
-10  -->  11
-20  -->  23
-30  -->  31
-40  -->  41
-50  -->  53
+...     print(numero , '-->' , generator.send(numero))
+10 --> 11
+20 --> 23
+30 --> 31
+40 --> 41
+50 --> 53
 ~~~~
 
 Si quisiermaos simplicar un *yield* en un bucle anidado de una "lista de listas" se podría emplear la salida *yield from*.
