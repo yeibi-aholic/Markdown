@@ -331,8 +331,12 @@ True
 - *max(c)* : Devuelve el carácter mayor de la cadena *c*.
 - *c.upper()* : Devuelve la cadena con los mismos caracteres que la cadena *c* pero en mayúsculas.
 - *c.lower()* : Devuelve la cadena con los mismos caracteres que la cadena *c* pero en minúsculas.
-- *c.title()* : Devuelve la cadena con los mismos caracteres que la cadena *c* con el primer carácter en mayúsculas y el resto en minúsculas.
+- *c.title()* : Devuelve la cadena con los mismos caracteres que la cadena *c* con el primer caracter de cada elemento en mayúsculas y el resto en minúsculas.
+- *c.capitalize()* : Devuelve la cadena con los mismos caracteres que la cadena *c* con el primer caracter en mayúsculas y el resto en minúsculas.
+- *c.center(n)* : Devulve una cadena de longitud *n* con la cedena *c* en el centro.
+- *c1.find(c2)* : Devuelve la posición de la cadena *c2* dentro de la cadena *c1*. Si no encuentra nada devuelve un -1.
 - *c.split(delimitador)* : Devuelve la lista formada por las subcadenas que resultan de partir la cadena *c* usando como delimitador la cadena delimitador. Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
+- *c1.replace(c2 , c3)* : Devuelve una cadena a partir de reemplazar todas las cadena *c2* por la cadena *c3* dentro de la cadena *c1*.
 
 ~~~~ python
 >>> len('Python')
@@ -343,11 +347,34 @@ True
 'y'
 >>> 'Python'.upper()
 'PYTHON'
+>>> 'Python'.lower()
+'python'
+>>> 'i love python'.title()
+'I Love Python'
+>>> 'i love python'.capitalize()
+'I love python'
+>>> 'Python'.center(10)
+'  Python  '
+>>> 'Hello world'.find('world')
+6
+>>> 'Hello world'.find('x')
+-1
 >>> 'A,B,C'.split(',')
 ['A', 'B', 'C']
 >>> 'I love Python'.split()
 ['I', 'love', 'Python']
+>>> 'Te quiero'.replace(' quiero' , 'quila')
+'Tequila'
 ~~~~
+
+#### Verificadores de cadenas
+- *c1.endswith(c2)* : Devuelve *\<True>* si la cadena *c1* termina con la cadena *c2* y *\<False>* en caso contrario.
+- *c.isalnum()* : Devuelve *\<True>* si todos los caracteres de la cadena *c* son alfanuméricos y *\<False>* en caso contrario. El caracter espacio no cuenta como alfanumérico.
+- *c.isalpha()* : Devuelve *\<True>* si todos los caracteres de la cadena *c* son alfabetos y *\<False>* en caso contrario.
+- *c.isdecimal()* : Devuelve *\<True>* si todos los caracteres de la cadena *c* son decimales y *\<False>* en caso contrario.
+- *c.islower()* : Devuelve *\<True>* si todos los caracteres en la cadena *c* están en minúsculas y *\<False>* en caso contrario.
+- *c.isupper()* : Devuelve *\<True>* si todos los caracteres en la cadena *c* están en mayúsculas y *\<False>* en caso contrario.
+- *c.printable()* : Devuelve *\<True>* si la cadena *c* se puede imprimir y *\<False>* en caso contrario. Los caracteres como '\ t' o '\ n' no se pueden imprimir.
 
 #### Cadenas formateadas (*format()*)
 - *c.format(valores)* : Devuelve la cadena *c* tras sustituir los valores de la secuencia valores en los marcadores de posición de *c*. Los marcadores de posición se indican mediante llaves *{}* en la cadena *c*, y el reemplazo de los valores se puede realizar por posición, indicando en número de orden del valor dentro de las llaves, o por nombre, indicando el nombre del valor, siempre y cuando los valores se pasen con el formato nombre = valor.
@@ -714,14 +741,15 @@ IndexError: list index out of range
 
 #### Operaciones que no modifican una lista
 - *len(l)* : Devuelve el número de elementos de la lista *l*.
-- *min(l)* : Devuelve el mínimo elemento de la lista *l* siempre que los datos sean comparables.
-- *max(l)* : Devuelve el máximo elemento de la lista *l* siempre que los datos sean comparables.
+- *min(l)* : Devuelve el mínimo elemento de la lista *l*, siempre que los datos sean comparables.
+- *max(l)* : Devuelve el máximo elemento de la lista *l*, siempre que los datos sean comparables.
 - *sum(l)* : Devuelve la suma de los elementos de la lista *l*, siempre que los datos se puedan sumar.
 - *dato in l* : Devuelve *\<True>* si el *dato* dato pertenece a la lista *l* y *\<False>* en caso contrario.
-- *l.index(dato)* : Devuelve la posición que ocupa en la lista *l* el primer elemento con valor *dato*.
+- *l.index(dato)* : Devuelve la posición que ocupa en la lista *l* el primer elemento con valor *dato*. Si no encunetra nada devuelve un *ValueError*.
 - *l.count(dato)* : Devuelve el número de veces que el valor *dato* está contenido en la lista *l*.
 - *all(l)* : Devuelve *\<True>* si todos los elementos de la lista *l* son *\<True>* y *\<False>* en caso contrario.
 - *any(l)* : Devuelve *\<True>* si algún elemento de la lista *l* es *\<True>* y *\<False>* en caso contrario.
+- *separador.join(l)* : Devuelve una cadena formada por los datos de la lista *l* con el separador *separador* entre cada uno, siempre que los datos sean del tipo *string*.
 
 ~~~~ python
 >>> a = [1, 2, 2, 3]
@@ -743,6 +771,8 @@ True
 True
 >>> any([0, False, 3<2])
 False
+>>> '#'.join(['a', 'b', 'c'])
+'a#b#c'
 ~~~~
 
 #### Operaciones que modifican una lista
