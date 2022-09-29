@@ -19,7 +19,8 @@
 17. **[Librería Numpy](#librería-numpy)**
 18. **[Librería Pandas](#librería-pandas)**
 19. **[Librería Matplotlib](#librería-matplotlib)**
-20. **[Depuración de código](#depuración-de-código)**
+20. **[Librería Tkinter](#librería-tkinter)**
+21. **[Depuración de código](#depuración-de-código)**
 
 ## **[<](#manual-python)**
 ## Introducción a Python
@@ -2101,7 +2102,7 @@ De esta forma se pueden abordar problemas muy complejos descomponiéndolos en pe
 ### Módulos
 El código de un programa en Python puede reutilizarse en otro importándolo. Cualquier fichero con código de Python reutilizable se conoce como *módulo* o *librería*.
 
-Los módulos suelen contener funciones reutilizables, pero también pueden definir variables con datos simples o compuestos (listas, diccionarios, etc), o cualquier otro código válido en Python.
+Los módulos suelen contener objetos (funciones, clases, excepciones, etc) reutilizables, pero también pueden definir variables con datos simples o compuestos (listas, diccionarios, etc), o cualquier otro código válido en Python.
 
 Python permite importar un módulo completo o sólo algunas partes de él. Cuando se importa un módulo completo, el intérprete de Python ejecuta todo el código que contiene el módulo, mientras que si solo se importan algunas partes del módulo, solo se ejecutarán esas partes.
 
@@ -2131,6 +2132,19 @@ Mo Tu We Th Fr Sa Su
 -1.0
 ~~~~
 
+> ⚠️ Por defecto, el módulo que queremos utilizar debe estar en la misma dirección que el programa en el que queremos emplear el código o en la *sys.path*, un conjunto de directorios predeterminado en Python.
+~~~~ python
+>>> import sys
+# imprimir todos los directorios
+>>> sys.path
+['C:\\Users\\usuario\\source\\repos\\Python', 
+ 'C:\\Users\\usuario\\AppData\\Local\\Programs\\Python\\Python36-32\\python36.zip', 
+ 'C:\\Users\\usuario\\AppData\\Local\\Programs\\Python\\Python36-32\\DLLs', 
+ 'C:\\Users\\usuario\\AppData\\Local\\Programs\\Python\\Python36-32\\lib', 
+ 'C:\\Users\\usuario\\AppData\\Local\\Programs\\Python\\Python36-32', 
+ 'C:\\Users\\usuario\\AppData\\Local\\Programs\\Python\\Python36-32\\lib\\site-packages']
+~~~~
+
 #### Módulos de la librería estándar más importantes
 Python viene con una [biblioteca de módulos predefinidos](https://docs.python.org/3/py-modindex.html) que no necesitan instalarse. Algunos de los más utilizados son:
 - *[sys](https://docs.python.org/3/library/sys.html)* : Funciones y parámetros específicos del sistema operativo.
@@ -2150,6 +2164,123 @@ Estas librerías no vienen en la distribución estándar de Python y necesitan i
 - *[matplotlib](https://matplotlib.org/)* : Análisis y representación gráfica de datos.
 - *[Pandas](https://pandas.pydata.org/)* : Funciones para el manejo y análisis de estructuras de datos.
 - *[Request](http://www.python-requests.org/en/master/)* : Acceso a internet por http.
+
+### Paquetes
+Los módulos se pueden agrupar bajo una misma carpeta para que funcionen como una librería instalable de Python.
+
+Para crear un paquete se debe crear un fichero especial *\_\_init__.py* vacío en el directorio donde pongamos todos los módulos que se quieren agrupar. 
+De esta forma, cuando Python recorra tal directorio será capaz de interpretar una jerarquía de módulos.
+~~~~ python
+paquete/
+    __init__.py
+    modulo1.py
+    modulo2.py
+~~~~
+
+Esta jerarquía se puede expandir tanto como se quiera creando subpaquetes, pero siempre añadiendo el fichero *\_\_init__.py* en cada uno de ellos.
+~~~~ python
+paquete/
+    __init__.py
+    subpaquete1/
+        __init__.py
+        modulo11.py
+        modulo12.py
+    subpaquete2/
+        __init__.py
+        modulo21.py
+        modulo22.py
+    subpaquete3/
+        __init__.py
+        modulo31.py
+        modulo32.py
+~~~~
+
+> ⚠️ Pasa lo mismo con la ruta de los paquetes que pasa con los mósulos.
+
+#### Importación de modulos
+- *import P.M* : Ejecuta el código que contiene *M* en la ruta de carpetas *P* y crea una referencia a él, de manera que pueden invocarse un objeto o función *f* definida en él mediante la sintaxis *P.M.f*.
+- *from P import M* : Ejecuta el código que contiene *M* en la ruta de carpetas *P* y crea una referencia a él, de manera que pueden invocarse un objeto o función *f* definida en él mediante la sintaxis *M.f*.
+- *from P.M import f, g, ...* : Ejecuta el código que contiene *M* en la ruta de carpetas *P* y crea referencias a los objetos *f, g, ...*, de manera que pueden ser invocados por su nombre. De esta manera para invocar cualquiera de estos objetos no hace falta precederlos por el nombre del módulo, basta con escribir su nombre.
+
+### Paquetes distribuibles
+Los paquetes pueden ser distribuibles para poder instalarlos en Python sin la necesidad de tener el paquete y el programa en el que queremos emplear el código en la misma ruta.
+
+Para crear un paquete distribuible tenemos que crear un fichero *setup.py* fuera de la raíz.
+~~~~ python
+setup.py
+paquete/
+    __init__.py
+    subpaquete1/
+        __init__.py
+        modulo11.py
+        modulo12.py
+    subpaquete2/
+        __init__.py
+        modulo21.py
+        modulo22.py
+    subpaquete3/
+        __init__.py
+        modulo31.py
+        modulo32.py
+~~~~
+
+Dentro del fichero hay que definir el distribuible con su información básica, incluyendo los paquetes y subpaquetes que lo forman, así como los posibles scripts.
+~~~~ python
+from setuptools import setup
+setup(
+    name="paquete",
+    version="1.0",
+    description="instalación de subpaquetes",
+    author="usuario",
+    author_email="usuario@mail.com",
+    url="http://www.web.net",
+    packages=['paquete','paquete.subpaquete1','paquete.subpaquete2','paquete.subpaquete3']
+    scripts=[]
+)
+~~~~
+
+Con *<Administrador: Símbolo del sistema>* o *<Windows: PowerShell>* nos posicionamos en la dirección del fichero *setup.py*.
+~~~~ shell
+C:\Users\Usuario> cd ../Python
+C:\Users\Usuario\..\Python> python setup.py sdist
+~~~~
+
+Tras ejecutar el comando previo, se ha creado una nueva carpeta llamada *dist*. En ella encontraremos un fichero *.zip* en Windows o *.tar.gz* en Linux.
+Este fichero es el distribuible y ahora se podría compartir con cualquiera que quiere instalar nuestro paquete.
+
+Para instalar un paquete en Python, y finalmente hacer que se pueda utilizar desde cualquier lugar, desde el directorio donde tenemos el paquete comprimido abrimos de nuevo *<Administrador: Símbolo del sistema>* o *<Windows: PowerShell>* y ejecutamos su instalación.
+~~~~ shell
+C:\Users\Usuario\..\Python> cd dist
+C:\Users\Usuario\..\Python\dist> pip install paquete-1.0.zip
+~~~~
+
+Con el comando *pip3 list*, se puede consultar todos los paquetes instalados en nuestro Python. 
+Todos los paquetes de la lista se pueden utilizar desde cualquier script, pues se encuentran instalados dentro de Python.
+~~~~ shell
+C:\Users\Usuario> pip3 list
+Package         Version
+--------------- --------
+cycler          0.11.0
+kiwisolver      1.3.1
+matplotlib      3.3.4
+numpy           1.19.5
+pandas          1.1.5
+paquete         1.0.0
+Pillow          8.4.0
+pip             21.3.1
+pyparsing       3.0.7
+python-dateutil 2.8.2
+pytz            2022.2.1
+setuptools      28.8.0
+six             1.16.0
+~~~~
+
+Finalmente, para desinstalar un paquete:
+~~~~ shell
+C:\Users\Usuario> pip uninstall paquete
+..
+Proceed (y/n)? y
+~~~~
 
 
 ## **[<](#manual-python)**
@@ -3838,6 +3969,13 @@ plt.show()
 ~~~~
 
 ![](https://aprendeconalf.es/docencia/python/manual/img/matplotlib-pandas2.png)
+
+
+## **[<](#manual-python)**
+## Librería Tkinter
+Tkinter es un *binding* de la biblioteca gráfica Tcl/Tk para Python siendo un estandar para GUI *(Graphical User Interface) *.
+
+![](https://pythonprogramming.net/static/images/basics/basic-tkinter-python3-window.png)
 
 
 ## **[<](#manual-python)**
