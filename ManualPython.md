@@ -3973,10 +3973,168 @@ plt.show()
 
 ## **[<](#manual-python)**
 ## Librería Tkinter
-Tkinter es un *binding* de la biblioteca gráfica Tcl/Tk para Python siendo un estandar para GUI *(Graphical User Interface) *.
+Tkinter es un *binding* de la biblioteca gráfica Tcl/Tk para Python siendo un estandar para GUI *(Graphical User Interface)*.
+
+~~~~ python
+import tkinter as tk
+
+raiz = tk.Tk()  # abre un ventana
+raiz.mainloop() # mantiene la ventana abierta indefinidamente
+~~~~
+> ⚠️ *mainloop()* debe ir al final del código para que no se cierre la ventana.
 
 ![](https://pythonprogramming.net/static/images/basics/basic-tkinter-python3-window.png)
 
+En caso de que se quiera lanzar un programa sin saber si se está instalado la librería Tkinter, lo mejor será anticiparnos a estos casos con una excepción.
+~~~~ python
+>>> try:
+...     import tkinter
+... except ImportError:
+...     raise ImportError("Se requiere el módulo tkinter")
+~~~~
+
+Si quisieramos evitar que se abriese la consola de comandos a la vez que se abre la ventana creada, habría que cambiar la extensión del programa de *.py* a *.pyw*.
+
+### Ventanas
+- *r.title(texto)* : Añade el texto *texto* como título a la ventana *r* que hemos creado.
+~~~~ python
+raiz.title("Título de la ventana")
+~~~~
+- *r.geometry(anchoxlargo)* : Cambia el tamaño predeterminado de la ventana *r* al abrirla por tantos *ancho* píxeles x *largo* píxeles.
+~~~~ python
+raiz.geometry("500x300")
+~~~~
+- *r.resizable(booleano_ancho , booleano_alto)* : Permite redimensionar el ancho y largo de la ventana *r* si introducimos *\<True>* o 1. Con *\<False>* o 0 bloquea el tamaño de la ventana al predeterminado al crearla.
+- *r.iconbitmap(imagen)* : Cambia el icono predefinido de la ventana *r* por una imagen con extensión *.ico*.
+~~~~ python
+raiz.iconbitmap("nuevo_icono.ico")
+~~~~
+
+### Frames
+Contenedor donde se plasmarán los widgets. Pueden haber más de uno en una sola ventana.
+~~~~ python
+frame = tk.Frame(raiz , parámetros)         # Crear el frame y asignarlo a la ventana
+frame.pack()                                # Se empaqueta el frame en la ventana creada
+~~~~
+> ⚠️ Si no definimos el tamaño de la ventana, ésta se adaptará al frame, pero solo al tamaño inicial. Si está activado la redimensión de la ventana, el frame permanecerá del mismo tamaño y centrado en la parte superior de la ventana.
+
+### Label
+Widget empleado para mostrar texto o imágenes. No se puede interactuar con él.
+~~~~ python
+variableLabel = tk.Label(frame , parámetros)
+~~~~
+
+#### Parámetros
+- *text* : Texto que se muestra en el Label.
+- *anchor* : Permite controlar la posición del texto si hay espacio suficiente. *"Center"* por defecto.
+- *bg* : Color de fondo (en inglés).
+- *bitmap* : Mapa de bits que se mostrará como gráfico.
+- *bd* : Grosor del borde. *2 px* por defecto.
+- *font* : Tipo de fuente a mostrar.
+- *fg* : Color de fuente.
+- *width* : Ancho del Label.
+- *height* : Altura del Label.
+- *image* : Imagen que se muestra en el Label.
+- *justify* : Justificación del texto del Label.
+
+> **Ejemplo**
+~~~~ python
+import tkinter as tk
+
+root = tk.Tk()
+root.title('Pack Demo')
+root.geometry("350x200")
+
+# box 1
+box1 = tk.Label(root, text="Box 1", bg="green", fg="white")
+box1.pack()
+
+# box 2
+box2 = tk.Label(root, text="Box 2", bg="red", fg="white")
+box2.pack()
+
+root.mainloop()
+~~~~
+![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-basics.png)
+> ⚠️ El punto de origen de coordenadas (x,y) es la esquina superior izquierda.  
+![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-coordinates.png)
+
+#### Configuración de *.pack()*
+- *ipadx* / *ipady* : Rellena internamente los widgets horizontalmente y verticalmente.
+~~~~ python
+box1.pack(ipadx=999, ipady=999)
+~~~~
+> **Ejemplo**
+~~~~ python
+box1.pack(ipadx=10, ipady=10)
+box2.pack(ipadx=10, ipady=10)
+~~~~
+![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-internal-padding.png)
+- *fill* : Rellena el espacio de un widget horizontalmente, verticalmente o ambos.
+~~~~ python
+frame.pack(fill="x")
+frame.pack(fill="y")
+frame.pack(fill="both")
+frame.pack(fill="none")
+~~~~
+> **Ejemplo**
+~~~~ python
+box1.pack(ipadx=20, ipady=20, fill='x')
+~~~~
+![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-fill-spaces.png)
+![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-fill-x.png)
+- *expand* : Aumenta el espacio disponible de un frame/widget todo lo posible. El espacio estará delimitado por la posición y espacio de otros widgets.
+~~~~ python
+frame.pack(expand=True)
+frame.pack(expand=1)
+frame.pack(expand=False)
+frame.pack(expand=0)
+~~~~
+> **Ejemplo**
+~~~~ python
+box1.pack(ipadx=20,ipady=20,expand=True)
+~~~~
+![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand.png)
+~~~~ python
+box1.pack(ipadx=20, ipady=20, fill="both", expand=True)
+~~~~
+![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand-and-fill.png)
+~~~~ python
+box1.pack(ipadx=20, ipady=20, fill="both", expand=True)
+box2.pack(ipadx=20, ipady=20, expand=True)
+~~~~
+![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand-space-evenly.png)
+- *anchor* : Ancla el widget en base a los puntos cardinales como puntos de referencia dentro de su propio espacio disponible.  
+![](https://www.tutorialspoint.com/python/images/tkanchor.jpg)
+> **Ejemplo**
+~~~~ python
+box1.pack(ipadx=20, ipady=20, anchor="e",  expand=True)
+box2.pack(ipadx=20, ipady=20, anchor="w",  expand=True)
+~~~~
+![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-anchor-demo.png)
+- *side* : Alinea el espacio del widget.
+~~~~ python
+frame.pack(side="left")
+frame.pack(side="right")
+frame.pack(side="top")
+frame.pack(side="bottom")
+~~~~
+> **Ejemplo**
+~~~~ python
+box1.pack(ipadx=20, ipady=20, fill="both", expand=True, side="left")
+box2.pack(ipadx=20, ipady=20, fill="both", expand=True) # side="top"
+~~~~
+![](https://www.pythontutorial.net/wp-content/uploads/2020/11/tkinter-pack-side-left.png)
+- *padx* / *pady* : Rellena externamente los widgets horizontalmente y verticalmente.
+~~~~ python
+box1.pack(padx=999, pady=999)
+~~~~
+> **Ejemplo**
+~~~~ python
+box1.pack(ipadx=20, ipady=20, padx=20, pady=20, fill="both", expand=True)
+box2.pack(ipadx=20, ipady=20, padx=20, pady=20, fill="both", expand=True)
+~~~~
+![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-paddings.png)
 
 ## **[<](#manual-python)**
 ## Depuración de código
