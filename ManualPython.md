@@ -4018,19 +4018,19 @@ frame.pack()                                # Se empaqueta el frame en la ventan
 ~~~~
 > ⚠️ Si no definimos el tamaño de la ventana, ésta se adaptará al frame, pero solo al tamaño inicial. Si está activado la redimensión de la ventana, el frame permanecerá del mismo tamaño y centrado en la parte superior de la ventana.
 
-### Entry
-Widget que permite escribir texto en él.
+### Widget
+#### Entry
+Widget que permite escribir texto en él y sacar el texto como variable.
 ~~~~ python
-cuadroTexto = tk.Entry(frame , parámetros)
+cuadroTexto = tk.Entry(frame, parámetros)
 ~~~~
 
-### Label
+#### Label
 Widget empleado para mostrar texto o imágenes. No se puede interactuar con él.
 ~~~~ python
 variableLabel = tk.Label(frame , parámetros)
 ~~~~
 
-#### Parámetros
 - *text* : Texto que se muestra en el Label.
 - *anchor* : Permite controlar la posición del texto si hay espacio suficiente. *"Center"* por defecto.
 - *bg* : Color de fondo (en inglés).
@@ -4065,8 +4065,34 @@ root.mainloop()
 > ⚠️ El punto de origen de coordenadas (x,y) es la esquina superior izquierda.  
 ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-coordinates.png)
 
-#### Place
-Permite indicar a los widgets dónde colocarse dentro del frame con coordenadas (x,y) respecto de la esquina superior izquierda en píxeles.
+#### Text
+Widget que permite introducir un texto largo en pantalla.
+~~~~ python
+Texto = tk.Text(frame , parámetros)
+~~~~
+
+Mismos *parámetros* que *Label*.
+> ⚠️ Si el texto supera el tamaño predeterminado del cuadro, el widget hace scroll vertical automaticamente pero no hay barra de scroll inicialmente.
+> Para introducir una barra de movimiento al cuadro de texto tenemos que crearla.
+> ~~~~ python
+> barra_movimiento = ScrollBar(frame, command=Texto.yview)
+> barra_movimiento.grid(fila, columna, sticky="nsew")
+> Texto.config(yscrollcommand=scrollVert.set)
+> ~~~~
+
+#### Button
+Widget que inserta un botón interactuable que ejecutará una acción asignada.
+~~~~ python
+def funcionBoton():
+    return
+
+Boton = tk.Button(frame, text="Texto", command=funcionBoton) 
+Bton.pack()
+~~~~
+![](EjemploButton.PNG)
+
+#### Comandos de configuración
+- *.place(x=posiciónx, y=posicioy)* : Permite indicar a los widgets dónde colocarse dentro del *frame* con coordenadas *(posicionx,posiciony)* respecto de la esquina superior izquierda en píxeles.
 ~~~~ python
 variableLabel.place(x=50, y=50)
 cuadroTexto.place(x=100, y=50)
@@ -4078,8 +4104,8 @@ cuadroTexto.place(x=100, y=50)
 > variableLabel.place(x=110, y=50)
 > ~~~~
 > ![](EjemploPlace2.PNG)
-#### Grid
-Divide el frame en filas y columnas, pero a nivel conceptual para ordenar elementos. El orden de filas y columnas funciona igual que las listas, siendo la primera fila y columna las (0,0).
+
+- *.grid(row=fila, column=columna)* : Divide el frame en filas y columnas, pero a nivel conceptual para ordenar elementos. El orden de filas y columnas funciona igual que las listas, siendo la primera fila y columna la 0.
 ~~~~ python
 variableLabel.grid(row=0, column=0)
 cuadroTexto.grid(row=0, column=1)
@@ -4087,82 +4113,87 @@ cuadroTexto.grid(row=0, column=1)
 ![](EjemploGrid.PNG)
 > ⚠️ Si se quiere que los elementos se organicen en un dirección (texto pegado arriba, derecha, abajo-izquierda, etc) solo hay que añadir el parámetro *sticky=*. Funciona igual que *anchor*.
 
-#### Configuración de *.pack()*
-- *ipadx* / *ipady* : Rellena internamente los widgets horizontalmente y verticalmente.
-~~~~ python
-box1.pack(ipadx=999, ipady=999)
-~~~~
+- *.pack()* : Empaqueta el widget dentro del frame *frame* asignado y permite modificar la posición, espacio y relleno de los widgets.
+> + *ipadx* / *ipady* : Rellena internamente los widgets horizontalmente y verticalmente.
+> ~~~~ python
+> box1.pack(ipadx=999, ipady=999)
+> ~~~~
 > **Ejemplo**
-~~~~ python
-box1.pack(ipadx=10, ipady=10)
-box2.pack(ipadx=10, ipady=10)
-~~~~
-![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-internal-padding.png)
-- *fill* : Rellena el espacio de un widget horizontalmente, verticalmente o ambos.
-~~~~ python
-frame.pack(fill="x")
-frame.pack(fill="y")
-frame.pack(fill="both")
-frame.pack(fill="none")
-~~~~
+> ~~~~ python
+> box1.pack(ipadx=10, ipady=10)
+> box2.pack(ipadx=10, ipady=10)
+> ~~~~
+> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-internal-padding.png)  
+
+> + *fill* : Rellena el espacio de un widget horizontalmente, verticalmente o ambos.
+> ~~~~ python
+> frame.pack(fill="x")
+> frame.pack(fill="y")
+> frame.pack(fill="both")
+> frame.pack(fill="none")
+> ~~~~
 > **Ejemplo**
-~~~~ python
-box1.pack(ipadx=20, ipady=20, fill='x')
-~~~~
-![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-fill-spaces.png)
-![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-fill-x.png)
-- *expand* : Aumenta el espacio disponible de un frame/widget todo lo posible. El espacio estará delimitado por la posición y espacio de otros widgets.
-~~~~ python
-frame.pack(expand=True)
-frame.pack(expand=1)
-frame.pack(expand=False)
-frame.pack(expand=0)
-~~~~
+> ~~~~ python
+> box1.pack(ipadx=20, ipady=20, fill='x')
+> ~~~~
+> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-fill-spaces.png)
+> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-fill-x.png)
+
+> + *expand* : Aumenta el espacio disponible de un frame/widget todo lo posible. El espacio estará delimitado por la posición y espacio de otros widgets.
+> ~~~~ python
+> frame.pack(expand=True)
+> frame.pack(expand=1)
+> frame.pack(expand=False)
+> frame.pack(expand=0)
+> ~~~~
 > **Ejemplo**
-~~~~ python
-box1.pack(ipadx=20,ipady=20,expand=True)
-~~~~
-![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand.png)
-~~~~ python
-box1.pack(ipadx=20, ipady=20, fill="both", expand=True)
-~~~~
-![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand-and-fill.png)
-~~~~ python
-box1.pack(ipadx=20, ipady=20, fill="both", expand=True)
-box2.pack(ipadx=20, ipady=20, expand=True)
-~~~~
-![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand-space-evenly.png)
-- *anchor* : Ancla el widget en base a los puntos cardinales como puntos de referencia dentro de su propio espacio disponible.  
-![](https://www.tutorialspoint.com/python/images/tkanchor.jpg)
+> ~~~~ python
+> box1.pack(ipadx=20,ipady=20,expand=True)
+> ~~~~
+> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand.png)
+> ~~~~ python
+> box1.pack(ipadx=20, ipady=20, fill="both", expand=True)
+> ~~~~
+> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand-and-fill.png)
+> ~~~~ python
+> box1.pack(ipadx=20, ipady=20, fill="both", expand=True)
+> box2.pack(ipadx=20, ipady=20, expand=True)
+> ~~~~
+> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand-space-evenly.png)
+
+> + *anchor* : Ancla el widget en base a los puntos cardinales como puntos de referencia dentro de su propio espacio disponible.  
+> ![](https://www.tutorialspoint.com/python/images/tkanchor.jpg)
 > **Ejemplo**
-~~~~ python
-box1.pack(ipadx=20, ipady=20, anchor="e",  expand=True)
-box2.pack(ipadx=20, ipady=20, anchor="w",  expand=True)
-~~~~
-![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-anchor-demo.png)
-- *side* : Alinea el espacio del widget.
-~~~~ python
-frame.pack(side="left")
-frame.pack(side="right")
-frame.pack(side="top")
-frame.pack(side="bottom")
-~~~~
+> ~~~~ python
+> box1.pack(ipadx=20, ipady=20, anchor="e",  expand=True)
+> box2.pack(ipadx=20, ipady=20, anchor="w",  expand=True)
+> ~~~~
+> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-anchor-demo.png)
+
+> + *side* : Alinea el espacio del widget.
+> ~~~~ python
+> frame.pack(side="left")
+> frame.pack(side="right")
+> frame.pack(side="top")
+> frame.pack(side="bottom")
+> ~~~~
 > **Ejemplo**
-~~~~ python
-box1.pack(ipadx=20, ipady=20, fill="both", expand=True, side="left")
-box2.pack(ipadx=20, ipady=20, fill="both", expand=True) # side="top"
-~~~~
-![](https://www.pythontutorial.net/wp-content/uploads/2020/11/tkinter-pack-side-left.png)
-- *padx* / *pady* : Rellena externamente los widgets horizontalmente y verticalmente.
-~~~~ python
-box1.pack(padx=999, pady=999)
-~~~~
+> ~~~~ python
+> box1.pack(ipadx=20, ipady=20, fill="both", expand=True, side="left")
+> box2.pack(ipadx=20, ipady=20, fill="both", expand=True) # side="top"
+> ~~~~
+> ![](https://www.pythontutorial.net/wp-content/uploads/2020/11/tkinter-pack-side-left.png)
+
+> + *padx* / *pady* : Rellena externamente los widgets horizontalmente y verticalmente.
+> ~~~~ python
+> box1.pack(padx=999, pady=999)
+> ~~~~
 > **Ejemplo**
-~~~~ python
-box1.pack(ipadx=20, ipady=20, padx=20, pady=20, fill="both", expand=True)
-box2.pack(ipadx=20, ipady=20, padx=20, pady=20, fill="both", expand=True)
-~~~~
-![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-paddings.png)
+> ~~~~ python
+> box1.pack(ipadx=20, ipady=20, padx=20, pady=20, fill="both", expand=True)
+> box2.pack(ipadx=20, ipady=20, padx=20, pady=20, fill="both", expand=True)
+> ~~~~
+> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-paddings.png)
 
 ## **[<](#manual-python)**
 ## Depuración de código
