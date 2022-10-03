@@ -4071,20 +4071,20 @@ Permite indicar a los widgets dónde colocarse dentro del frame con coordenadas 
 variableLabel.place(x=50, y=50)
 cuadroTexto.place(x=100, y=50)
 ~~~~
-![](EjemploPlace.png)
+![](EjemploPlace.PNG)
 > ⚠️ Si x,y son iguales en dos elementos, la salida los colocará uno al lado del otro por orden de declaración. Pero si una posición de un elemento está dentro del espacio de otro, la salida los superpondrá según el orden en los que hayan sido declarados.  
 > ~~~~ python
 > cuadroTexto.place(x=100, y=50)
 > variableLabel.place(x=110, y=50)
 > ~~~~
-> ![](EjemploPlace2.png)
+> ![](EjemploPlace2.PNG)
 #### Grid
 Divide el frame en filas y columnas, pero a nivel conceptual para ordenar elementos. El orden de filas y columnas funciona igual que las listas, siendo la primera fila y columna las (0,0).
 ~~~~ python
 variableLabel.grid(row=0, column=0)
 cuadroTexto.grid(row=0, column=1)
 ~~~~
-![](EjemploGrid.png)
+![](EjemploGrid.PNG)
 > ⚠️ Si se quiere que los elementos se organicen en un dirección (texto pegado arriba, derecha, abajo-izquierda, etc) solo hay que añadir el parámetro *sticky=*. Funciona igual que *anchor*.
 
 #### Configuración de *.pack()*
