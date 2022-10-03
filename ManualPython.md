@@ -1,4 +1,4 @@
-# **MANUAL PYTHON**
+﻿# **MANUAL PYTHON**
 
 1. **[Introducción a Python](#introducción-a-python)**
 2. **[Tipos de Datos Primitivos Simples](#tipos-de-datos-primitivos-simples)**
@@ -4018,6 +4018,12 @@ frame.pack()                                # Se empaqueta el frame en la ventan
 ~~~~
 > ⚠️ Si no definimos el tamaño de la ventana, ésta se adaptará al frame, pero solo al tamaño inicial. Si está activado la redimensión de la ventana, el frame permanecerá del mismo tamaño y centrado en la parte superior de la ventana.
 
+### Entry
+Widget que permite escribir texto en él.
+~~~~ python
+cuadroTexto = tk.Entry(frame , parámetros)
+~~~~
+
 ### Label
 Widget empleado para mostrar texto o imágenes. No se puede interactuar con él.
 ~~~~ python
@@ -4035,7 +4041,7 @@ variableLabel = tk.Label(frame , parámetros)
 - *width* : Ancho del Label.
 - *height* : Altura del Label.
 - *image* : Imagen que se muestra en el Label.
-- *justify* : Justificación del texto del Label.
+- *justify* : Orientación del texto del Label. *left* por defecto.
 
 > **Ejemplo**
 ~~~~ python
@@ -4058,6 +4064,28 @@ root.mainloop()
 ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-basics.png)
 > ⚠️ El punto de origen de coordenadas (x,y) es la esquina superior izquierda.  
 ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-coordinates.png)
+
+#### Place
+Permite indicar a los widgets dónde colocarse dentro del frame con coordenadas (x,y) respecto de la esquina superior izquierda en píxeles.
+~~~~ python
+variableLabel.place(x=50, y=50)
+cuadroTexto.place(x=100, y=50)
+~~~~
+![](EjemploPlace.png)
+> ⚠️ Si x,y son iguales en dos elementos, la salida los colocará uno al lado del otro por orden de declaración. Pero si una posición de un elemento está dentro del espacio de otro, la salida los superpondrá según el orden en los que hayan sido declarados.  
+> ~~~~ python
+> cuadroTexto.place(x=100, y=50)
+> variableLabel.place(x=110, y=50)
+> ~~~~
+> ![](EjemploPlace2.png)
+#### Grid
+Divide el frame en filas y columnas, pero a nivel conceptual para ordenar elementos. El orden de filas y columnas funciona igual que las listas, siendo la primera fila y columna las (0,0).
+~~~~ python
+variableLabel.grid(row=0, column=0)
+cuadroTexto.grid(row=0, column=1)
+~~~~
+![](EjemploGrid.png)
+> ⚠️ Si se quiere que los elementos se organicen en un dirección (texto pegado arriba, derecha, abajo-izquierda, etc) solo hay que añadir el parámetro *sticky=*. Funciona igual que *anchor*.
 
 #### Configuración de *.pack()*
 - *ipadx* / *ipady* : Rellena internamente los widgets horizontalmente y verticalmente.
