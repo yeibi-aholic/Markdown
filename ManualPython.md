@@ -4086,10 +4086,34 @@ Widget que inserta un botón interactuable que ejecutará una acción asignada.
 def funcionBoton():
     return
 
-Boton = tk.Button(frame, text="Texto", command=funcionBoton) 
-Bton.pack()
+Boton = tk.Button(frame, text="Texto", command=lambda:funcionBoton) 
+Boton.pack()
 ~~~~
 ![](EjemploButton.PNG)
+
+#### Radiobutton
+Widget que introduce una lista de opciones de selección de respuesta única.
+~~~~ python
+varOption = tk.IntVar()
+
+tk.Radiobutton(frame, text="Option 1", variable=varOption, value=1).pack()
+tk.Radiobutton(frame, text="Option 2", variable=varOption, value=2).pack()
+tk.Radiobutton(frame, text="Option 3", variable=varOption, value=3).pack()
+~~~~
+![](EjemploRadiobutton.PNG)
+
+#### Checkbutton
+Widget que introduce una lista de opciones de selección de respuesta multiple.
+~~~~ python
+varOption1 = tk.IntVar()
+varOption2 = tk.IntVar()
+varOption3 = tk.IntVar()
+
+tk.Checkbutton(frame, text="Option 1", variable=varOption1, onvalue=1, offvalue=0).pack()
+tk.Checkbutton(frame, text="Option 2", variable=varOption2, onvalue=1, offvalue=0).pack()
+tk.Checkbutton(frame, text="Option 3", variable=varOption3, onvalue=1, offvalue=0).pack()
+~~~~
+![](EjemploCheckbutton.PNG)
 
 #### Comandos de configuración
 - *.place(x=posiciónx, y=posicioy)* : Permite indicar a los widgets dónde colocarse dentro del *frame* con coordenadas *(posicionx,posiciony)* respecto de la esquina superior izquierda en píxeles.
