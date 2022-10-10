@@ -1399,7 +1399,7 @@ def <nombre-generador>(<parametros>):
 >>> generador.send(None)    # Inicialización de .send()
 ...
 >>> for numero in numeros:
-...     print(numero , '-->' , generator.send(numero))
+...     print(numero , '-->' , generador.send(numero))
 10 --> 11
 20 --> 23
 30 --> 31
@@ -2658,6 +2658,140 @@ Para resolver un sistema de ecuaciones lineales se utiliza la función siguiente
 >>> b = np.array([1, 2])
 >>> print(np.linalg.solve(a, b))
 [-1.  1.]
+~~~~
+
+
+## **[<](#manual-python)**
+## Bases de datos (SQLite)
+SQLite es un gestor de bases de datos relacional pero con objetivos muy diferentes a los gestores como MySQL, SQLServer, Oracle, PostgreSQL etc.
+
+![](http://3.bp.blogspot.com/-6bUXf5bLal0/UFixq3Utd0I/AAAAAAAAABs/AKMhRSBHbBw/s1600/SQLITE+Logo.jpg)
+
+Este gestor de base de datos tiene por objetivo ser parte de la misma aplicación con la que colabora, es decir no cumple los conceptos de cliente y servidor.
+
+Para entender sus usos podemos dar algunos ejemplos donde se utiliza el gestor SQLite:
+- Firefox usa SQLite para almacenar los favoritos, el historial, las cookies etc.
+- Los navegadores Opera y Chrome.
+- La aplicación de comunicaciones Skype de Microsoft.
+- Los sistemas operativos Android y iOS adoptan SQLite para permitir el almacenamiento y recuperación de datos.
+
+Podemos conocer otras empresas famosas que hacen uso de SQLite visitando el [sitio oficial de SQLite](https://www.sqlite.org/famous.html).
+
+SQLite es Open Source y colabora con el almacenamiento de datos cuando hacemos aplicaciones con lenguajes como Python, Java, C#, C, C++, Delphi etc.
+
+|Ventajas|Inconvenientes|
+|:-|:-|
+|Ocupa muy poco espacio en disco y memoria.|No admite clausulas anidadas (where).|
+|Muy eficiente y rápido.|No existen usuarios (no acceso simultáneo por parte de varios usuarios a la vez).|
+|Multiplataforma.|Falta de clave foránea cuando se crea en modo consola.|
+|Sin administración / configuración.||
+|Dominio público.||
+
+### Pasos a seguir para conectar BBDD
+1. Abrir-Crear conexión.
+2. Crear puntero.
+3. Ejecutar query (consulta) SQL.
+4. Manejar los resultados de la query (consulta).
+    - **C**reate (Insertar)
+    - **R**ead (Leer)
+    - **U**pdate (Actualizar)
+    - **D**elete (Borrar)
+5. Cerrar puntero.
+6. Cerrar conexión.   
+
+~~~~ python
+import sqlite3 as sql
+
+#1
+conexion = sql.connect("Base")
+#2
+cursor = conexion.cursor()
+#3
+cursor.execute("CREATE TABLE PRODUCTOS (NOMBRE_ARTICULO VARCHAR(50), PRECIO INTEGER, SECCION VARCHAR(20))")
+cursor.execute("INSERT INTO  PRODUCTOS VALUES('BALON', 15, 'DEPORTES')")
+#4
+conexion.commit()
+#5
+cursos.close()
+#6
+conexion.close()
+~~~~
+
+Si se quieren ejecutar varios registros se podría tanto ejecutar una query para cada registro como utilizar el comando *".executemany()"* con la ayuda de una lista de tuplas.
+~~~~ python
+ListaProductos = [('CAMISETA', 10, 'ROPA')    ,
+                  ('JARRÓN'  , 90, 'JARDIN')  ,
+                  ('PELUCHE' , 20, 'JUGUETES')]
+
+cursor.executemany("INSERT INTO PRODUCTOS VALUES(?, ?, ?)" , ListaProductos)
+~~~~
+
+Para seleccionar y mostrar registros de nuestra tabla primero hay que seleccionar con una query los registros deseados y después "traerlos" con el comando *.fetchone()*, *.fetchmany(cantidad)* ó *.fetchall()* del cursor.
+~~~~ python
+>>> cursor.execute("SELECT * FROM PRODUCTOS")
+>>> for producto in cursor.fetchall()
+...     print(producto)
+('BALON', 15, 'DEPORTES')
+('CAMISETA', 10, 'ROPA')
+('JARRÓN'  , 90, 'JARDIN')
+('PELUCHE' , 20, 'JUGUETES')
+~~~~
+
+En caso de que se quiera trabajar con una columna de acceso de valores únicos (como el DNI de cada persona) es necesario declararlo en la creación de la tabla.
+~~~~ python
+import sqlite3 as sql
+
+conexion = sql.connect("Base")
+cursor = conexion.cursor()
+
+cursor.execute('''
+    CREATE TABLE PRODUCTOS_2 (
+        CODIGO_ARTICULO VARCHAR(4) PRIMARY KEY,
+        NOMBRE_ARTICULO VARCHAR(50),
+        PRECIO INTEGER,
+        SECCION VARCHAR(20))
+''')
+
+productos = [('AR01', 'PELOTA'        , 20, 'JUGUETES')  ,
+             ('AR02', 'PANTALÓN'      , 15, 'ROPA' )     ,
+             ('AR03', 'DESTORNILLADOR', 25, 'FERRETERÍA'),
+             ('AR04', 'JARRÓN'        , 45, 'JARDÍN')]
+
+cursor.executemany("INSERT INTO PRODUCTOS_2 VALUES (?, ?, ?, ?)", productos)
+conexion.commit()
+
+curosr.close()
+conexion.close()
+~~~~
+> ⚠️ Si se quiere que una clave se autogestione automáticamente, hay que declarar *AUTOINCREMENT* después de declarar su tipo de dato. Normalmente se suele declarar como *'ID'* de valor entero. 
+Después de esta declaración, al insertar, la columna de la clave autoincrementada debe contener el valor *NULL*.
+> ~~~~ python
+> cursor.execute('''
+>     CREATE TABLE PRODUCTOS_2 (
+>         ID INTEGER PRIMARY KEY AUTOINCREMENT,
+>         NOMBRE_ARTICULO VARCHAR(50),
+>         PRECIO INTEGER,
+>         SECCION VARCHAR(20))
+> ''')
+>
+> productos = [('PELOTA'        , 20, 'JUGUETES')  ,
+>              ('PANTALÓN'      , 15, 'ROPA' )     ,
+>              ('DESTORNILLADOR', 25, 'FERRETERÍA'),
+>              ('JARRÓN'        , 45, 'JARDÍN')]
+>
+> cursor.executemany("INSERT INTO PRODUCTOS_2 VALUES (NULL, ?, ?, ?)", productos)
+> conexion.commit()
+> ~~~~
+
+En caso que se quiera trabajar con una columna de valores únicos (a parte de la *PRIMARY KEY*), se declara el parámetro *UNIQUE* después del tipo de dato.
+~~~~ python
+cursor.execute('''
+    CREATE TABLE PRODUCTOS_2 (
+        CODIGO_ARTICULO VARCHAR(4)  PRIMARY KEY,
+        NOMBRE_ARTICULO VARCHAR(50) UNIQUE,
+        PRECIO INTEGER,
+        SECCION VARCHAR(20))
+''')
 ~~~~
 
 
@@ -4114,6 +4248,62 @@ tk.Checkbutton(frame, text="Option 2", variable=varOption2, onvalue=1, offvalue=
 tk.Checkbutton(frame, text="Option 3", variable=varOption3, onvalue=1, offvalue=0).pack()
 ~~~~
 ![](EjemploCheckbutton.PNG)
+
+#### Menu
+Widget que permite añadir una barra de menú con una lista de opciones (submenús) en cada elemento creado.
+~~~~ python
+menu = tk.Menu(raiz)
+raiz.config(menu=menu)
+
+menuArchivo = tk.Menu(menu)
+menuEdicion = tk.Menu(menu)
+menuAyuda = tk.Menu(menu)
+
+menuArchivo = tk.Menu(menu, tearoff=0)
+menuArchivo.add_command(label="Nuevo")
+menuArchivo.add_command(label="Abrir")
+menuArchivo.add_command(label="Guardar")
+
+menu.add_cascade(label="Archivo", menu=menuArchivo)
+menu.add_cascade(label="Edicion", menu=menuEdicion)
+menu.add_cascade(label="Ayuda", menu=menuAyuda)
+~~~~
+![](EjemploMenu.PNG)
+![](EjemploMenu2.PNG)
+> ⚠️ Si se quiere separar los distintos submenús dentro de un misco menú para crear y diferenciar grupos de opciones, tan solo hay que añadir entre los submenús a separar el código:
+> ~~~~ python
+> menu.add_command(label="Submenu1")
+> menu.add_separator()
+> menu.add_command(label="Submenu2")
+> ~~~~
+
+#### Ventanas emergentes
+Ventanas modales para informar, avisar o permitir realizar tareas al usuario.
+
+Estas ventanas no forman parte de la biblioteca estándar de Tkinter, por lo que hay que importarlas aparte.
+~~~~ python
+from tkinter import messagebox
+
+messagebox.showinfo("Titulo", "Texto informativo")
+messagebox.showwarning("Titulo", "Texto de aviso")
+messagebox.askquestion("Titulo", "Pregunta")        # devuelve los valores "yes" ó "no"
+messagebox.askokcancel("Titulo", "Pregunta")        # devuelve los valores <True> ó <False>
+messagebox.askretrycancel("Titulo", "Pregunta")     # devuelve los valores <True> ó <False>
+~~~~
+![](EjemploVentanaEmergente.PNG)
+![](EjemploVentanaEmergente2.PNG)
+![](EjemploVentanaEmergente3.PNG)
+![](EjemploVentanaEmergente4.PNG)
+![](EjemploVentanaEmergente5.PNG)
+
+#### Abrir archivos
+~~~~ python
+from tkinter import filedialog
+
+filedialog.askopenfilename(title="Titulo", initialdir="C:/", filetypes=(("Ficheros de Excel" , "*xlsx"), ("Ficheros de texto" , "*.txt")))  # devuelve la ruta del fichero seleccionado
+~~~~
+![](EjemploFiledialog.PNG)
+> ⚠️ Por defecto, se abre la ruta *📄 > Este equipo > Documentos*
 
 #### Comandos de configuración
 - *.place(x=posiciónx, y=posicioy)* : Permite indicar a los widgets dónde colocarse dentro del *frame* con coordenadas *(posicionx,posiciony)* respecto de la esquina superior izquierda en píxeles.
