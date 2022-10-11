@@ -337,7 +337,7 @@ True
 - *c.center(n)* : Devulve una cadena de longitud *n* con la cedena *c* en el centro.
 - *c1.find(c2)* : Devuelve la posición de la cadena *c2* dentro de la cadena *c1* la primera vez que aparece. Si no encuentra nada devuelve un -1.
 - *c1.rfind(c2)* : Devuelve la posición de la cadena *c2* dentro de la cadena *c1* la última vez que aparece. Si no encuentra nada devuelve un -1.
-- *c.split(delimitador)* : Devuelve la lista formada por las subcadenas que resultan de partir la cadena *c* usando como delimitador la cadena delimitador. Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
+- *c.split(delimitador)* : Devuelve la lista formada por las subcadenas que resultan de partir la cadena *c* usando como delimitador la cadena *delimitador*. Si no se especifica el delimitador utiliza por defecto el espacio en blanco.
 - *c.strip(caracteres)* : Devuelve la cadena formada tras borrar los caracteres *caracteres* de la cadena *c*. Primero borra desde la izquierda mientras haya caracteres que se encuentren en *caracteres* y después lo mismo por la derecha.
 - *c1.replace(c2 , c3)* : Devuelve una cadena a partir de reemplazar todas las cadena *c2* por la cadena *c3* dentro de la cadena *c1*.
 
@@ -2712,7 +2712,7 @@ cursor.execute("INSERT INTO  PRODUCTOS VALUES('BALON', 15, 'DEPORTES')")
 #4
 conexion.commit()
 #5
-cursos.close()
+cursor.close()
 #6
 conexion.close()
 ~~~~
