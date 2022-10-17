@@ -20,7 +20,8 @@
 18. **[Librería Pandas](#librería-pandas)**
 19. **[Librería Matplotlib](#librería-matplotlib)**
 20. **[Librería Tkinter](#librería-tkinter)**
-21. **[Depuración de código](#depuración-de-código)**
+21. **[Expresiones regulares](#expresiones-regulares)**
+22. **[Depuración de código](#depuración-de-código)**
 
 ## **[<](#manual-python)**
 ## Introducción a Python
@@ -1282,37 +1283,6 @@ En muchos casos es más eficiente resolver la tarea recursiva de forma iterativa
 8
 ~~~~
 
-### Documentación de funciones
-Una práctica muy recomendable cuando se define una función es describir lo que la función hace en un comentario.
-
-En Python esto se hace con un **docstring** que es un tipo de comentario especial se hace en la línea siguiente al encabezado de la función entre tres comillas simples *'''* o dobles *"""*.
-
-Después se puede acceder a la documentación de la función con la función *help(<nombre-función>)*.
-
-~~~~ python
->>> def area_triangulo(base, altura):
-... """
-... Función que calcula el área de un triángulo.
-...
-... Parámetros:
-...     - base: Un número real con la base del triángulo.
-...     - altura: Un número real con la altura del triángulo.
-... Salida:
-...     Un número real con el área del triángulo de base y altura especificadas.
-... """
-...     return base * altura / 2
-...
->>> help(area_triangulo)
-area_triangulo(base, altura)
-    Función que calcula el área de un triángulo.
-
-    Parámetros:
-        - base: Un número real con la base del triángulo.
-        - altura: Un número real con la altura del triángulo.
-    Salida:
-        Un número real con el área del triángulo de base y altura especificadas.
-~~~~
-
 ### Generadores (*yield*)
 Cuando trabajamos con funciones, la ejecución comienza en la primera línea y continúa hasta que encuentra un *return*, *exception* o el fin de la función. Estas subrutinas devuelven un solo valor a la vez y retornan el control de la ejecución.
 
@@ -1434,6 +1404,37 @@ def generador(elementos):
 'a'
 >>> print(next(lista_ciudades))
 'd'
+~~~~
+
+### Documentación de funciones
+Una práctica muy recomendable cuando se define una función es describir lo que la función hace en un comentario.
+
+En Python esto se hace con un **docstring** que es un tipo de comentario especial se hace en la línea siguiente al encabezado de la función entre tres comillas simples *'''* o dobles *"""*.
+
+Después se puede acceder a la documentación de la función con la función *help(<nombre-función>)*.
+
+~~~~ python
+>>> def area_triangulo(base, altura):
+... """
+... Función que calcula el área de un triángulo.
+...
+... Parámetros:
+...     - base: Un número real con la base del triángulo.
+...     - altura: Un número real con la altura del triángulo.
+... Salida:
+...     Un número real con el área del triángulo de base y altura especificadas.
+... """
+...     return base * altura / 2
+...
+>>> help(area_triangulo)
+area_triangulo(base, altura)
+    Función que calcula el área de un triángulo.
+
+    Parámetros:
+        - base: Un número real con la base del triángulo.
+        - altura: Un número real con la altura del triángulo.
+    Salida:
+        Un número real con el área del triángulo de base y altura especificadas.
 ~~~~
 
 
@@ -2095,6 +2096,58 @@ Después se crean objetos con los datos concretos del problema y se hace que los
 
 De esta forma se pueden abordar problemas muy complejos descomponiéndolos en pequeñas tareas que son más fáciles de resolver que el problema principal (*¡divide y vencerás!*).
 
+### Documentación de clases
+Al igual que las funciones, se puede definir una descripción de ayuda.
+~~~~ python
+>>> class Mates:
+...     """ Esta clase calcula las operaciones básicas matemáticas."""
+...     
+...     def suma(a, b):
+...         """ Función que calcula la suma de dos números."""
+...         return a+b
+...
+...     def resta(a, b):
+...         """ Función que calcula la resta de dos números."""
+...         return a-b
+...
+...     def multi(a, b):
+...         """ Función que calcula la multiplicación de dos números."""
+...         return a*b
+...
+...     def divi(a, b):
+...         """ Función que calcula la división entre dos números."""
+...         return a/b
+...
+>>> help(Mates)
+Help on class Mates in module __main__:
+
+class Mates(builtins.object)
+ |  Esta clase calcula las operaciones básicas matemáticas.
+ |
+ |  Methods defined here:
+ |
+ |  divi(a, b)
+ |      Función que calcula la división entre dos números.
+ |
+ |  multi(a, b)
+ |      Función que calcula la multiplicación de dos números.
+ |
+ |  resta(a, b)
+ |      Función que calcula la resta de dos números.
+ |
+ |  suma(a, b)
+ |      Función que calcula la suma de dos números.
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+~~~~
+
 
 ## **[<](#manual-python)**
 ## Módulos
@@ -2281,6 +2334,38 @@ C:\Users\Usuario> pip uninstall paquete
 ..
 Proceed (y/n)? y
 ~~~~
+
+### Documentación de módulos
+Al igual que las funciones y módulos, es recomendable describir para que sirve el módulo y sus respectivas funciones. 
+~~~~ python
+>>> import datetime
+>>> help(datetime)
+Help on module datetime:
+
+NAME
+    datetime - Fast implementation of the datetime type.
+
+MODULE REFERENCE
+https://docs.python.org/3.8/library/datetime
+    
+    The following documentation is automatically generated from the Python
+    source files.  It may be incomplete, incorrect or include features that
+    are considered implementation detail and may vary between Python
+    implementations.  When in doubt, consult the module reference at the
+    location listed above.
+
+CLASSES
+    builtins.object
+        date
+            datetime
+        time
+        timedelta
+        tzinfo
+            timezone
+    
+--More--
+~~~~
+
 
 
 ## **[<](#manual-python)**
@@ -4408,6 +4493,99 @@ cuadroTexto.grid(row=0, column=1)
 > box2.pack(ipadx=20, ipady=20, padx=20, pady=20, fill="both", expand=True)
 > ~~~~
 > ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-paddings.png)
+
+
+## **[<](#manual-python)**
+## Expresiones regulares
+---
+Las expresiones regulares, también llamadas RegEX, son secuencias de caracteres que forman un patrón de búsqueda.
+
+### Coincidencia de caracteres
+- *match(comparador, c)* : Determina si el comienzo de la cadena *c* coincide con la cadena *comparador*.
+- *search(comparador, c)* : Escanea la cadena *c*, buscando la cadena *comparador* hasta encontrar una coincidencia.
+- *findall(comparador, c)* : Encuentra todas las subcadenas de caracteres de la cadena *c* donde coincide la cadena *comparador* y las retorna como una lista.
+- *finditer(comparador, c)* : Encuentra todas las subcadenas de caracteres de la cadena *c* donde coincide la cadena *comparador* y las retorna como un término iterado
+> ⚠️ Si se cumplen las condiciones de las sentencias se devuelve un *\<match object>*. En caso contrario, devuelve *\<None>*.
+
+~~~~ python
+>>> import re
+>>> texto = "Bienvenidos y bienvenidas a Python"
+>>> re.match('Bienv', texto)
+<re.Match object; span=(0, 5), match='Bienv'>
+>>> re.search('Pithon', texto)
+None
+>>> re.findall('y', texto)
+['y', 'y']
+>>> re.finditer('y', texto)
+<callable_iterator object at 0x7f00a4a35610>
+~~~~
+
+### Metacaracteres
+Sirven para poder especificar secuencias especiales y sets.
+
+|Caracter|Descripción|
+|:-:|:-|
+|*[ ]*|Un conjunto de caracteres tanto numéricos como alfabéticos.|
+|*\{ }*|Un número determinado de resultados.|
+|*\( )*|Agrupación de patrones.|
+|*\\*|Secuencia especial, permite que un metacaracter funcione como caracter literal.|
+|*\|*|Para especificar que encuentre un resultado u otro.|
+|*.*|Caracter comodin, reemplaza cualquier caracter.|
+|*^*|Comienza con lo que le escribas.|
+|*$*|Termina con lo que le escribas.|
+|*\**|Ninguno o más resultados.|
+|*+*|Uno o más resultados.|
+
+~~~~ python
+>>> import re
+>>> lista = ['A1', 'B7', 'D5', 'a2', 'f5', 'z9']
+>>> for elemento in lista:
+...     if re.findall('^B', elemento):  # los elementos que empiezan por "B"
+...         print(elemento)
+'B7'
+...     if re.findall('5$', elemento):  # los elementos que terminen en "5"
+...         print(elemento)
+'D5' 
+'f5'
+...     if re.findall('[a-z]', elemento):   # los elementos que contegan un caracter entre "a" y "z" (ambos incluidos)
+...         print(elemento)
+'a2'
+'f5'
+'z9'
+...     if re.findall('[A-D][1-4]', elemento):  # los elementos que sean una combinación entre los rangos A-D y 1-4 en dicho orden
+...         print(elemento)
+'A1'
+...     if re.findall('[AD][1-8]', elemento): # los elementos que sean A ó D más un valor en el rango 1-8
+...         print(elemento)
+'A1'
+'D5'
+...     if re.findall('[A-Za-z][^1-6]', elemento):  # añadir "^" dentro de un rango es equivalente a negarlo
+...         print(elemento)
+'B7'
+'z9'
+~~~~
+~~~~ python
+>>> import re
+>>> lista = ['Google', 'Yahoo', 'Amazon', 'Apple', 'Audi', 'Mercedes']
+>>> for elemento in lista:
+>>>     if re.findall('[oo{2}]', elemento): # los elementos que tengan 1 ó 2 "o"
+>>>         print(elemento)
+'Google'
+'Yahoo'
+'Amazon'
+>>>     if re.findall('oo|pp', elemento): # los elementos que tengan "oo" ó "pp" 
+>>>         print(elemento)
+'Google'
+'Yahoo'
+'Apple'
+>>>     if re.findall('a.o', elemento): # los elementos que tengan "a" +...+ "o"
+>>>         print(elemento)
+'Yahoo'
+'Amazon'
+~~~~
+
+
+
 
 ## **[<](#manual-python)**
 ## Depuración de código
