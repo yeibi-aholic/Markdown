@@ -19,9 +19,10 @@
 17. **[Librería Numpy](#librería-numpy)**
 18. **[Librería Pandas](#librería-pandas)**
 19. **[Librería Matplotlib](#librería-matplotlib)**
-20. **[Librería Tkinter](#librería-tkinter)**
-21. **[Expresiones regulares](#expresiones-regulares)**
-22. **[Depuración de código](#depuración-de-código)**
+20. **[Librería Turtle](#librería-turtle)**
+21. **[Librería Tkinter](#librería-tkinter)**
+22. **[Expresiones regulares](#expresiones-regulares)**
+23. **[Depuración de código](#depuración-de-código)**
 
 ## **[<](#manual-python)**
 ## Introducción a Python
@@ -1826,7 +1827,7 @@ La programación orientada a objetos permite simplificar la estructura y la lóg
 > - **Atributos** => Número de la tarjeta, titular, balance, fecha de caducidad, pin, entidad emisora, estado (activa o no), etc.
 > - **Métodos** => Activar, pagar, renovar, anular.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/tarjeta-credito.svg)
+![](Photos\ManualPython\Programacion_Orienta_A_Objetos\Ejemplo.png)
 
 #### Acceso a los atributos y métodos de un objeto
 - *dir(objeto)* : Devuelve una lista con los nombres de los atributos y métodos del objeto *objeto*.
@@ -4188,6 +4189,225 @@ plt.show()
 ~~~~
 
 ![](https://aprendeconalf.es/docencia/python/manual/img/matplotlib-pandas2.png)
+
+
+## **[<](#manual-python)**
+## Librería Turtle
+La "tortuga" de es un cursor al que se le pueden dar órdenes de movimiento (avance, retroceso o giro) y que puede ir dejando un rastro sobre la pantalla. Moviendo adecuadamente la tortuga se pueden conseguir dibujar todo tipo de figuras.
+
+Python incluye un módulo llamado "turtle" que permite crear gráficos de tortuga.
+~~~~ python
+import turtle
+~~~~
+
+### Ventana
+- *setup(ancho, alto, posicionX, posicionY)* : Permite definir el tamaño y la posición inicial de la ventana. Todas las medidas en píxeles.
+> ⚠️ Los valores positivos de la posición se miden desde la parte superior izquierda de la pantalla, los negativos desde la parte inferior derecha.
+~~~~ python
+turtle.setup(400,400,100,100)
+~~~~
+![](EjemploSetup.PNG)
+
+> ⚠️ Si no se usa la función *setup()*, la ventana se crea en el centro de la pantalla (para que se cree la ventana tiene que aparecer alguna función del módulo turtle):
+
+> ⚠️ El tamaño de la ventana de dibujo se puede modificar a lo largo de un programa, sin que se pierda el dibujo realizado anteriormente.
+- *title()* : Permite definir el título de la ventana, que se muestra en el borde superior de la ventana.
+~~~~ python
+turtle.title("Titulo")
+~~~~
+![](EjemploTitulo.PNG)
+
+- *screensize(ancho, alto)* : Permite definir el tamaño del área de dibujo, en píxeles. De forma predeterminada tiene un tamaño de *400x300* píxeles.
+> ⚠️ El tamaño del área de dibujo se puede modificar a lo largo de un programa, sin que se pierda el dibujo realizado anteriormente.
+
+### Dibujar
+Dibujar gráficos de tortuga es similar a dibujar con un lápiz sobre papel. Las instrucciones de gráficos de tortuga permiten dibujar líneas y puntos, mover el lápiz de un sitio a otro, cambiar el color y grosor del trazo, colorear el interior de las figuras, etc.
+
+Las posiciones en el área de dibujo se localizan mediante coordenadas XY en el que cada píxel es una unidad y con origen en el centro de la ventana.
+
+![](https://www.mclibre.org/consultar/python/img/turtle/turtle-ejes.png)
+
+- *showturle()* : Muestra el cursor en pantalla. Al crear la ventana, el cursor se sitúa en el centro de la ventana, de coordenadas (0, 0).
+~~~~ python
+turtle.showturle()
+~~~~
+![](https://www.mclibre.org/consultar/python/img/turtle/turtle-showturtle-1.png)
+
+- *hideturtle()* : Oculta el cursor en pantalla.
+
+- *goto(x, y)* : Permite desplazar el cursor a una posición determinada del área de dibujo.
+~~~~ python
+turtle.setup(450, 200, 0, 0)
+turtle.screensize(300, 150)
+
+turtle.goto(100,50)
+turtle.goto(100,-50)
+turtle.goto(50,-50)
+~~~~
+![](https://www.mclibre.org/consultar/python/img/turtle/turtle-goto-3.png)
+
+- *setx(), sety()* : Permiten desplazar el cursor a una posición determinada del área de dibujo modificando la abcisa y la ordenada respectivamente.
+~~~~ python
+turtle.goto(100, 50)
+turtle.sety(-50)
+turtle.setx(50)
+~~~~
+![](https://www.mclibre.org/consultar/python/img/turtle/turtle-goto-3.png)
+
+- *pendown(), penup()* : Son equivalentes a bajar y levantar el lápiz del papel. Una vez levantado el lápiz del papel, al desplazar el lápiz ya no se dibujan segmentos.
+~~~~ python
+turtle.goto(100, 50)
+turtle.penup()
+turtle.goto(100, -50)
+turtle.pendown()
+turtle.goto(50, -50)
+~~~~
+![](https://www.mclibre.org/consultar/python/img/turtle/turtle-goto-4.png)
+
+- *pensize()* : Permite modificar el grosor del trazo.
+~~~~ python
+turtle.goto(100, 50)
+turtle.pensize(4)
+turtle.goto(100, -50)
+turtle.pensize(8)
+turtle.goto(50, -50)
+~~~~
+![](https://www.mclibre.org/consultar/python/img/turtle/turtle-pensize-1.png)
+
+- *pencolor(rojo, azul verde)* : Permite modificar el color del trazo. El color se da como combinación de rojo, azul y verde. Los valores de color se pueden dar como valores enteros entre 0 y 255 o como valores decimales entre 0 y 1. Para elegir entre un modo y otro de indicar los colores hay que utilizar la función *colormode(1)* o *colormode(255)*.
+~~~~ python
+turtle.colormode(255)
+
+turtle.pencolor(255, 0, 0)
+turtle.goto(100, 50)
+turtle.pencolor(0, 255, 0)
+turtle.goto(100, -50)
+turtle.pencolor(0, 0, 255)
+turtle.goto(50, -50)
+~~~~
+~~~~ python
+turtle.colormode(1)
+
+turtle.pencolor(1, 0, 0)
+turtle.goto(100, 50)
+turtle.pencolor(0, 1, 0)
+turtle.goto(100, -50)
+turtle.pencolor(0, 0, 1)
+turtle.goto(50, -50)
+~~~~
+![](https://www.mclibre.org/consultar/python/img/turtle/turtle-pencolor-1.png)
+
+> ⚠️ También se pueden utilizar los [nombres de colores de Tk](https://www.mclibre.org/consultar/python/lecciones/python-tk-colores.html), que incluyen entre otros los nombres de colores *SVG*, en cuyo caso no hace falta utilizar la función *colormode()*.
+> ~~~~ python
+> pencolor("red")
+> goto(100, 50)
+> pencolor("green")
+> goto(100, -50)
+> pencolor("blue")
+> goto(50, -50)
+> ~~~~
+
+- *dot(grosor, color)* : Permite dibujar un punto del grosor y color indicado en el punto en el que se encuentra el cursor. El grosor se indica en píxeles y el color se expresa como en la función *pencolor()*.
+~~~~ python
+turtle.colormode(255)
+
+turtle.goto(100, 50)
+turtle.dot(10, 255, 0, 0)
+turtle.goto(100, -50)
+turtle.dot(10, 0, 255, 0)
+turtle.goto(50, -50)
+turtle.dot(10, 0, 0, 255)
+turtle.goto(0,0)
+~~~~
+![](https://www.mclibre.org/consultar/python/img/turtle/turtle-dot-1.png)
+
+~~~~ python
+turtle.colormode(255)
+
+turtle.penup()
+turtle.goto(100, 50)
+turtle.dot(10, 255, 0, 0)
+turtle.goto(100, -50)
+turtle.dot(10, 0, 255, 0)
+turtle.goto(50, -50)
+turtle.dot(10, 0, 0, 255)
+turtle.goto(0,0)
+~~~~
+![](https://www.mclibre.org/consultar/python/img/turtle/turtle-dot-2.png)
+
+- *circle(radio, grados, pasos)* : Permite dibujar una curva, estando el centro de la curva a la izquierda perpendicularmente a donde esté apuntado el cursor. 
+~~~~ python
+turtle.circle(80)   # circulo de radio = 80
+~~~~
+![](https://media.geeksforgeeks.org/wp-content/uploads/20200712121822/circle.gif)
+
+~~~~ python
+turtle.circle(80, 180)  # semi-circulo de radio = 80
+~~~~
+![](https://media.geeksforgeeks.org/wp-content/uploads/20200712122137/arc.gif)
+
+~~~~ python
+turtle.circle(80, 360, 5)   # circulo de radio = 80 con solo 5 puntos uniformemente distribuidos (pentágono)
+~~~~
+![](https://media.geeksforgeeks.org/wp-content/uploads/20200712122535/steps.gif)
+> ⚠️ Si no se dibuja una "curva" completa (360º), el puntero permancerá en la posición y giro finales.
+
+> ⚠️ Si se indica el número de pasos (polígono) y la curva es cerrada (360º), el puntero se encontrará en la misma posición y ángulo que al comienzo de dibujar la curva, aunque el tramo final sea una línea recta.
+
+
+### Rellenar
+- *begin_fill(), end_fill()* : Indican a Python que las figuras que se dibujen se deben rellenar o se deben parar de rellenar.
+- *fillcolor(color)* : permite establecer el color de relleno, de la misma manera que la función *pencolor()*. El color de relleno predeterminado es el negro.
+~~~~ python
+turtle.hideturtle()
+
+turtle.pensize(5)
+turtle.fillcolor("red")
+turtle.begin_fill()
+turtle.goto(100, 0)
+turtle.goto(100, 50)
+turtle.goto(0, 50)
+turtle.goto(0, 0)
+turtle.end_fill()
+~~~~
+![](https://www.mclibre.org/consultar/python/img/turtle/turtle-fill-1.png)
+
+~~~~ python
+turtle.hideturtle()
+
+turtle.pensize(5)
+turtle.fillcolor("red")
+turtle.begin_fill()
+turtle.goto(50, 50)
+turtle.goto(100, -50)
+turtle.goto(150, 0)
+turtle.goto(0, 0)
+turtle.end_fill()
+~~~~
+![](https://www.mclibre.org/consultar/python/img/turtle/turtle-fill-4.png)
+
+> ⚠️ Realmente no es necesario dibujar la figura completa ya que Python rellena la figura aunque no se cierre la figura (es como si Python uniera el último punto de la figura con el primero).
+> ~~~~ python
+> turtle.hideturtle()
+> 
+> turtle.pensize(5)
+> turtle.fillcolor("red")
+> turtle.begin_fill()
+> turtle.goto(100, 0)
+> turtle.goto(100, 50)
+> turtle.goto(0, 50)
+> turtle.end_fill()
+> ~~~~
+> ![](https://www.mclibre.org/consultar/python/img/turtle/turtle-fill-3.png)
+
+
+
+
+
+
+
+
+
 
 
 ## **[<](#manual-python)**
