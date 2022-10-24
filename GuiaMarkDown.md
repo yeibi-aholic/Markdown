@@ -377,9 +377,9 @@ Si queremos ir a un apartado concreto del documento tan solo hay que aplicar la 
 [Manual de Python - Tipos de datos Primitivos Simples](ManualPython.md#tipos-de-datos-primitivos-simples)
 > Si el archivo al que queremos acceder se encuentra una o varias carpetas más atrás, tan solo hay que poner *"../"* al comienzo de la ruta.
 > ~~~~
-> [Hola Mundo!](../Python/Ejercicios Alf/01 Tipos de Datos Simples/Ejercicio_01-01.py)
+> [Hola Mundo!](../Python/Ejercicios_Alf/01-Tipos_de_Datos_Simples/Ejercicio_01-01.py)
 > ~~~~
-> [Hola Mundo!](../)
+> [Hola Mundo!](../Python/Ejercicios_Alf/01-Tipos_de_Datos_Simples/Ejercicio_01-01.py)
 
 #### Imágenes
 Para agregar imágenes se trataría de un simbolo de exlamación (!), nombre entre corchetes y la dirección en los documentos (sin espacios) o ***URL***
