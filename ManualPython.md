@@ -1827,7 +1827,7 @@ La programación orientada a objetos permite simplificar la estructura y la lóg
 > - **Atributos** => Número de la tarjeta, titular, balance, fecha de caducidad, pin, entidad emisora, estado (activa o no), etc.
 > - **Métodos** => Activar, pagar, renovar, anular.
 
-![](../Photos/ManualPython/Programacion_Orienta_A_Objetos/Ejemplo.PNG)
+![](../Photos/ManualPython/Programacion_Orientada_Objetos/Ejemplo.PNG)
 
 #### Acceso a los atributos y métodos de un objeto
 - *dir(objeto)* : Devuelve una lista con los nombres de los atributos y métodos del objeto *objeto*.
@@ -2027,7 +2027,7 @@ En el ejemplo de la tarjeta de crédito, el método *mostrar_saldo* solo se defi
 #### Jerarquía de clases
 A partir de una clase derivada mediante herencia se pueden crear nuevas clases hijas aplicando de nuevo la herencia. Ello da lugar a una jerarquía de clases que puede representarse como un árbol donde cada clase hija se representa como una rama que sale de la clase madre.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/jerarquia-clases.svg)
+![](../Photos/ManualPython/Programacion_Orientada_Objetos/JerarquiaClases.PNG)
 
 Debido a la herencia, cualquier objeto creado a partir de una clase es una instancia de la clase, pero también lo es de las clases que son ancestros de esa clase en la jerarquía de clases.
 
@@ -2508,14 +2508,14 @@ Incorpora una nueva clase de objetos llamados **arrays** que permite representar
 
 La ventaja de Numpy frente a las listas predefinidas en Python es que el procesamiento de los arrays se realiza mucho más rápido (hasta 50 veces más) que las listas, lo cual la hace ideal para el procesamiento de vectores y matrices de grandes dimensiones.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/numpy-logo.png)
+![](../Photos/ManualPython/Libreria_Numpy/NumpyLogo.PNG)
 
 ### La clase de objetos *array*
 Un array es una estructura de datos de un mismo tipo organizada en forma de tabla o cuadrícula de distintas dimensiones.
 
 Las dimensiones de un array también se conocen como **ejes**.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/arrays.png)
+![](../Photos/ManualPython/Libreria_Numpy/Arrays.PNG)
 
 ### Para crear un array se utiliza la siguiente función de NumPy
 - *np.array(lista)* : Crea un array a partir de la lista o tupla *lista* y devuelve una referencia a él. El número de dimensiones del array dependerá de las listas o tuplas anidadas en *lista*:
@@ -2751,7 +2751,7 @@ Para resolver un sistema de ecuaciones lineales se utiliza la función siguiente
 ## Bases de datos (SQLite)
 SQLite es un gestor de bases de datos relacional pero con objetivos muy diferentes a los gestores como MySQL, SQLServer, Oracle, PostgreSQL etc.
 
-![](http://3.bp.blogspot.com/-6bUXf5bLal0/UFixq3Utd0I/AAAAAAAAABs/AKMhRSBHbBw/s1600/SQLITE+Logo.jpg)
+![](../Photos/ManualPython/Bases_de_datos/SQLiteLogo.JPG)
 
 Este gestor de base de datos tiene por objetivo ser parte de la misma aplicación con la que colabora, es decir no cumple los conceptos de cliente y servidor.
 
@@ -2886,7 +2886,7 @@ cursor.execute('''
 ---
 [Pandas](https://pandas.pydata.org/) es una librería de Python especializada en el manejo y análisis de estructuras de datos.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/pandas-logo.png)
+![](../Photos/ManualPython/Libreria_Pandas/PandasLogo.PNG)
 
 Las principales características de esta librería son:
 - Define nuevas estructuras de datos basadas en los arrays de la librería NumPy pero con nuevas funcionalidades.
@@ -2910,7 +2910,7 @@ Son estructuras similares a los arrays de una dimensión. Son homogéneas, es de
 Dispone de un índice que asocia un nombre a cada elemento del la serie, a través de la cuál se accede al elemento.
 
 > **Ejemplo.** La siguiente serie contiene las asignaturas de un curso.
-![](https://aprendeconalf.es/docencia/python/manual/img/pandas-series.png)
+![](../Photos/ManualPython/Libreria_Pandas/Series.PNG)
 
 ### Creación de series
 #### Creación de una serie a partir de una lista
@@ -3153,7 +3153,7 @@ Un DataFrame contiene dos índices, uno para las filas y otro para las columnas,
 
 > **Ejemplo.** El siguiente DataFrame contiene información sobre los alumnos de un curso. Cada fila corresponde a un alumno y cada columna a una variable.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/pandas-dataframe.png)
+![](../Photos/ManualPython/Libreria_Pandas/Dataframe.PNG)
 
 ### Creación de un DataFrame
 #### Creación de un DataFrame a partir de un diccionario de listas
@@ -3606,7 +3606,7 @@ Para eliminar las filas de un DataFrame que contienen datos desconocidos *NaN* o
 ### Agrupación de un DataFrame
 En muchas aplicaciones es útil agrupar los datos de un DataFrame de acuerdo a los valores de una o varias columnas (categorías), como por ejemplo el sexo o el país.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/pandas-grupos.png)
+![](../Photos/ManualPython/Libreria_Pandas/Grupos.PNG)
 
 #### Dividir un DataFrame en grupos
 Para dividir un DataFrame en grupos se utiliza el siguiente método:
@@ -3662,7 +3662,7 @@ M     34.666667  59.500000  1.676667     207.200
 ### Reestructurar un DataFrame
 A menudo la disposición de los datos en un DataFrame no es la adecuada para su tratamiento y es necesario reestructurar el DataFrame. Los datos que contiene un DataFrame pueden organizarse en dos formatos: ancho y largo.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/formatos-dataframe.png)
+![](../Photos/ManualPython/Libreria_Pandas/FormatosDataframe.PNG)
 
 #### Convertir un DataFrame a formato largo
 Para convertir un DataFrame de formato ancho a formato largo (columnas a filas) se utiliza el siguiente método:
@@ -3710,11 +3710,11 @@ Dos o más DataFrames pueden combinarse en otro DataFrame. La combinación puede
 #### Concatenación de DataFrames
 - **Concatenación de filas**. Las filas de los DataFrames se concatenan unas a continuación de las otras para formar el nuevo DataFrame. Para ello es necesario que los DataFrames que se combinen tengan el mismo índice de columnas.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/pandas-concatenacion-filas.png)
+![](../Photos/ManualPython/Libreria_Pandas/ConcatenacionFilas.PNG)
 
 - **Concatenación de columnas**. Las columnas de los DataFrames se concatenan unas a continuación de las otras para formar el nuevo DataFrame. Para ello es necesario que los DataFrames que se combinen tengan el mismo índice de filas.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/pandas-concatenacion-columnas.png)
+![](../Photos/ManualPython/Libreria_Pandas/ConcatenacionColumnas.PNG)
 
 Para concatenar dos o más DataFrames se utiliza el siguiente método:
 - *df.concat(dataframes, axis = eje)* : Devuelve el DataFrame que resulta de concatenar los DataFrames de la lista *dataframes*. Si eje es *0* (valor por defecto) la concatenación se realiza por filas, y si *eje* es 1 se realiza por columnas.
@@ -3816,7 +3816,7 @@ El tipo de mezcla puede ser
 ---
 [Matplotlib](https://matplotlib.org/) es una librería de Python especializada en la creación de gráficos en dos dimensiones.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/matplotlib-logo.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/MatplotlibLogo.PNG)
 
 Permite crear y personalizar los tipos de gráficos más comunes, entre ellos:
 - Diagramas de barras
@@ -3855,7 +3855,7 @@ plt.savefig('diagrama-dispersion.png')
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/diagrama-dispersion.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/DiagramaDispersion.PNG)
 
 ### Diagramas de dispersión o puntos
 - *scatter(x, y)* : Dibuja un diagrama de puntos con las coordenadas de la lista *x* en el eje X y las coordenadas de la lista *y* en el eje Y. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter)
@@ -3866,7 +3866,7 @@ ax.scatter([1, 2, 3, 4], [1, 2, 0, 0.5])
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/diagrama-puntos.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/DiagramaPuntos.PNG)
 
 ### Diagramas de líneas
 - *plot(x, y)* : Dibuja un polígono con los vértices dados por las coordenadas de la lista *x* en el eje X y las coordenadas de la lista *y* en el eje Y. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot)
@@ -3877,7 +3877,7 @@ ax.plot([1, 2, 3, 4], [1, 2, 0, 0.5])
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/diagrama-lineas.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/DiagramaLineas.PNG)
 
 ### Diagramas de areas
 - *fill_between(x, y)* : Dibuja el area bajo el polígono con los vértices dados por las coordenadas de la lista *x* en el eje X y las coordenadas de la lista *y* en el eje Y. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.fill_between.html#matplotlib.pyplot.fill_between)
@@ -3888,7 +3888,7 @@ ax.fill_between([1, 2, 3, 4], [1, 2, 0, 0.5])
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/diagrama-areas.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/DiagramaAreas.PNG)
 
 ### Diagramas de barras verticales
 - *bar(x, y)* : Dibuja un diagrama de barras verticales donde *x* es una lista con la posición de las barras en el eje X, e *y* es una lista con la altura de las barras en el eje Y. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html#matplotlib.pyplot.bar)
@@ -3899,7 +3899,7 @@ ax.bar([1, 2, 3], [3, 2, 1])
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/diagrama-barras.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/DiagramaBarras.PNG)
 
 ### Diagramas de barras horizontales
 - *barh(x, y)* : Dibuja un diagrama de barras horizontales donde *x* es una lista con la posición de las barras en el eje Y, e *y* es una lista con la longitud de las barras en el eje X. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.barh.html#matplotlib.pyplot.barh)
@@ -3910,7 +3910,7 @@ ax.barh([1, 2, 3], [3, 2, 1])
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/diagrama-barras-horizontales.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/DiagramaBarrasHorizontales.PNG)
 
 ### Histogramas
 - *hist(x, bins)* : Dibuja un histograma con las frecuencias resultantes de agrupar los datos de la lista *x* en las clases definidas por la lista *bins*. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist)
@@ -3923,7 +3923,7 @@ ax.hist(x, np.arange(0, 11))
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/histograma.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/Histograma.PNG)
 
 ### Diagramas de sectores
 - *pie(x)* : Dibuja un diagrama de sectores con las frecuencias de la lista *x*. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pie.html#matplotlib.pyplot.pie)
@@ -3934,7 +3934,7 @@ ax.pie([5, 4, 3, 2, 1])
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/diagrama-sectores.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/DiagramaSectores.PNG)
 
 ### Diagramas de caja y bigotes
 - *boxplot(x)* : Dibuja un diagrama de caja y bigotes con los datos de la lista *x*. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.boxplot.html#matplotlib.pyplot.boxplot)
@@ -3945,7 +3945,7 @@ ax.boxplot([1, 2, 1, 2, 3, 4, 3, 3, 5, 7])
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/diagrama-caja.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/DiagramaCaja.PNG)
 
 ### Diagramas de violín
 - *violinplot(x)* : Dibuja un diagrama de violín con los datos de la lista x. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.violinplot.html#matplotlib.pyplot.violinplot)
@@ -3956,7 +3956,7 @@ ax.violinplot([1, 2, 1, 2, 3, 4, 3, 3, 5, 7])
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/diagrama-violin.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/DiagramaViolin.PNG)
 
 ### Diagramas de contorno
 - *contourf(x, y, z)* : Dibuja un diagrama de contorno con las curvas de nivel de la superficie dada por los puntos con las coordenadas de las listas *x*, *y* y *z* en los ejes X, Y y Z respectivamente. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.contourf.html#matplotlib.pyplot.contourf)
@@ -3971,7 +3971,7 @@ ax.contourf(x, y, z)
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/diagrama-contorno.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/DiagramaContorno.PNG)
 
 ### Mapas de color
 - *imshow(x)* : Dibuja un mapa de color a partir de una matriz (array bidimensiona) *x*. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow)
@@ -3983,7 +3983,7 @@ ax.imshow(x)
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/mapa-calor.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/MapaColor.PNG)
 
 - *hist2d(x, y)* : Dibuja un mapa de color que simula un histograma bidimensional, donde los colores de los cuadrados dependen de las frecuencias de las clases de la muestra dada por las listas *x* e *y*. [ℹ️](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist2d.html#matplotlib.pyplot.hist2d)
 ~~~~ python
@@ -3994,7 +3994,7 @@ ax.hist2d(x, y)
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/histograma2D.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/Histograma2D.PNG)
 
 ### Cambiar el aspecto de los gráficos
 Los gráficos creados con Matplotlib son personalizables y puede cambiarse el aspecto de casi todos sus elementos. Los elementos que suelen modificarse más a menudo son:
@@ -4018,7 +4018,7 @@ ax.plot(dias, temperaturas['Barcelona'], color = 'tab:green')
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/lineas-colores.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/LineasColores.PNG)
 
 #### Marcadores
 Para cambiar la forma de los puntos marcadores se utiliza el parámetro *marker = nombre-marcador* donde *nombre-marcador* es una cadena con el nombre del marcador de entre los [marcadores disponibles](https://matplotlib.org/3.2.1/api/markers_api.html).
@@ -4032,7 +4032,7 @@ ax.plot(dias, temperaturas['Barcelona'], marker = 'o')
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/lineas-marcadores.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/LineasMarcadores.PNG)
 
 #### Líneas
 Para cambiar el estilo de las líneas se utiliza el parámetro *linestyle = nombre-estilo* donde *nombre-estilo* es una cadena con el nombre del estilo de entre los [estilos disponibles](https://matplotlib.org/3.2.1/gallery/lines_bars_and_markers/linestyles.html).
@@ -4046,7 +4046,7 @@ ax.plot(dias, temperaturas['Barcelona'], linestyle = 'dotted')
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/lineas-estilo.png)                           
+![](../Photos/ManualPython/Libreria_Matplotlib/LineasEstilo.PNG)                        
                            
 #### Títulos
 Para añadir un título principal al gráfico se utiliza el siguiente método:
@@ -4062,7 +4062,7 @@ ax.set_title('Evolución de la temperatura diaria', loc = "left", fontdict = {'f
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/titulo.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/Titulo.PNG)
 
 #### Ejes
 Para cambiar el aspecto de los ejes se suelen utilizar los siguientes métodos:
@@ -4088,7 +4088,7 @@ ax.set_yticks(range(20, 35))
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/ejes.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/Ejes.PNG)
 
 #### Leyenda
 Para añadir una leyenda a un gráfico se utiliza el siguiente método:
@@ -4115,7 +4115,7 @@ ax.legend(loc = 'upper right')
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/leyenda.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/Leyenda.PNG)
 
 #### Rejilla
 - *ax.grid(axis=ejes, color=color, linestyle=estilo)* : Dibuja una rejilla en los ejes de *ax*. El parámetro *axis* indica los ejes sobre los que se dibuja la regilla y puede ser *'x'* (eje x), *'y'* (eje y) o *'both'* (ambos). Los parámetros *color* y *linestyle* establecen el color y el estilo de las líneas de la rejilla, y pueden tomar los mismos valores vistos en los apartados de colores y líneas.
@@ -4130,7 +4130,7 @@ ax.grid(axis = 'y', color = 'gray', linestyle = 'dashed')
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/rejilla.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/Rejilla.PNG)
 
 ### Múltiples gráficos
 Es posible dibujar varios gráficos en distintos ejes en una misma figura organizados en forma de tabla. Para ello, cuando se inicializa la figura y los ejes, hay que pasarle a la función *subplots* el número de filas y columnas de la tabla que contendrá los gráficos. Con esto los distintos ejes se organizan en un array y se puede acceder a cada uno de ellos a través de sus índices. Si se quiere que los distintos ejes compartan los mismos límites para los ejes se pueden pasar los parámetros *sharex = True* para el eje x o *sharey = True* para el eje y.
@@ -4146,7 +4146,7 @@ ax[1, 1].bar(dias, temperaturas['Barcelona'], color = 'tab:orange')
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/multiples-graficos.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/MultiplesGraficos.PNG)
 
 ### Integración con Pandas
 Matplotlib se integra a la perfección con la librería Pandas, permitiendo dibujar gráficos a partir de los datos de las series y DataFrames de Pandas.
@@ -4173,7 +4173,7 @@ df.plot(x = 'Días', y = 'Barcelona', ax = ax)
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/matplotlib-pandas.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/MatplotlibPandas.PNG)
 
 Si no se indican los parámetros *x* e *y* se representa el índice de las filas en el eje x y una serie por cada columna del Dataframe. Las columnas no numéricas se ignoran.
 ~~~~ python
@@ -4188,7 +4188,7 @@ df.plot(ax = ax)
 plt.show()
 ~~~~
 
-![](https://aprendeconalf.es/docencia/python/manual/img/matplotlib-pandas2.png)
+![](../Photos/ManualPython/Libreria_Matplotlib/MatplotlibPandas_2.PNG)
 
 
 ## **[<](#manual-python)**
@@ -4206,7 +4206,7 @@ import turtle
 ~~~~ python
 turtle.setup(400,400,100,100)
 ~~~~
-![](EjemploSetup.PNG)
+![](../Photos/ManualPython/Libreria_Turtle/Setup.PNG)
 
 > ⚠️ Si no se usa la función *setup()*, la ventana se crea en el centro de la pantalla (para que se cree la ventana tiene que aparecer alguna función del módulo turtle):
 
@@ -4215,7 +4215,7 @@ turtle.setup(400,400,100,100)
 ~~~~ python
 turtle.title("Titulo")
 ~~~~
-![](EjemploTitulo.PNG)
+![](../Photos/ManualPython/Libreria_Turtle/Titulo.PNG)
 
 - *screensize(ancho, alto)* : Permite definir el tamaño del área de dibujo, en píxeles. De forma predeterminada tiene un tamaño de *400x300* píxeles.
 > ⚠️ El tamaño del área de dibujo se puede modificar a lo largo de un programa, sin que se pierda el dibujo realizado anteriormente.
@@ -4225,13 +4225,13 @@ Dibujar gráficos de tortuga es similar a dibujar con un lápiz sobre papel. Las
 
 Las posiciones en el área de dibujo se localizan mediante coordenadas XY en el que cada píxel es una unidad y con origen en el centro de la ventana.
 
-![](https://www.mclibre.org/consultar/python/img/turtle/turtle-ejes.png)
+![](../Photos/ManualPython/Libreria_Turtle/Ejes.PNG)
 
 - *showturle()* : Muestra el cursor en pantalla. Al crear la ventana, el cursor se sitúa en el centro de la ventana, de coordenadas (0, 0).
 ~~~~ python
 turtle.showturle()
 ~~~~
-![](https://www.mclibre.org/consultar/python/img/turtle/turtle-showturtle-1.png)
+![](../Photos/ManualPython/Libreria_Turtle/Showturtle.PNG)
 
 - *hideturtle()* : Oculta el cursor en pantalla.
 
@@ -4244,7 +4244,7 @@ turtle.goto(100,50)
 turtle.goto(100,-50)
 turtle.goto(50,-50)
 ~~~~
-![](https://www.mclibre.org/consultar/python/img/turtle/turtle-goto-3.png)
+![](../Photos/ManualPython/Libreria_Turtle/Goto_1.PNG)
 
 - *setx(), sety()* : Permiten desplazar el cursor a una posición determinada del área de dibujo modificando la abcisa y la ordenada respectivamente.
 ~~~~ python
@@ -4252,7 +4252,7 @@ turtle.goto(100, 50)
 turtle.sety(-50)
 turtle.setx(50)
 ~~~~
-![](https://www.mclibre.org/consultar/python/img/turtle/turtle-goto-3.png)
+![](../Photos/ManualPython/Libreria_Turtle/Goto_1.PNG)
 
 - *pendown(), penup()* : Son equivalentes a bajar y levantar el lápiz del papel. Una vez levantado el lápiz del papel, al desplazar el lápiz ya no se dibujan segmentos.
 ~~~~ python
@@ -4262,7 +4262,7 @@ turtle.goto(100, -50)
 turtle.pendown()
 turtle.goto(50, -50)
 ~~~~
-![](https://www.mclibre.org/consultar/python/img/turtle/turtle-goto-4.png)
+![](../Photos/ManualPython/Libreria_Turtle/Goto_2.PNG)
 
 - *pensize()* : Permite modificar el grosor del trazo.
 ~~~~ python
@@ -4272,7 +4272,7 @@ turtle.goto(100, -50)
 turtle.pensize(8)
 turtle.goto(50, -50)
 ~~~~
-![](https://www.mclibre.org/consultar/python/img/turtle/turtle-pensize-1.png)
+![](../Photos/ManualPython/Libreria_Turtle/Pensize.PNG)
 
 - *pencolor(rojo, azul verde)* : Permite modificar el color del trazo. El color se da como combinación de rojo, azul y verde. Los valores de color se pueden dar como valores enteros entre 0 y 255 o como valores decimales entre 0 y 1. Para elegir entre un modo y otro de indicar los colores hay que utilizar la función *colormode(1)* o *colormode(255)*.
 ~~~~ python
@@ -4295,7 +4295,7 @@ turtle.goto(100, -50)
 turtle.pencolor(0, 0, 1)
 turtle.goto(50, -50)
 ~~~~
-![](https://www.mclibre.org/consultar/python/img/turtle/turtle-pencolor-1.png)
+![](../Photos/ManualPython/Libreria_Turtle/Pencolor.PNG)
 
 > ⚠️ También se pueden utilizar los [nombres de colores de Tk](https://www.mclibre.org/consultar/python/lecciones/python-tk-colores.html), que incluyen entre otros los nombres de colores *SVG*, en cuyo caso no hace falta utilizar la función *colormode()*.
 > ~~~~ python
@@ -4319,7 +4319,7 @@ turtle.goto(50, -50)
 turtle.dot(10, 0, 0, 255)
 turtle.goto(0,0)
 ~~~~
-![](https://www.mclibre.org/consultar/python/img/turtle/turtle-dot-1.png)
+![](../Photos/ManualPython/Libreria_Turtle/Dot_1.PNG)
 
 ~~~~ python
 turtle.colormode(255)
@@ -4333,23 +4333,23 @@ turtle.goto(50, -50)
 turtle.dot(10, 0, 0, 255)
 turtle.goto(0,0)
 ~~~~
-![](https://www.mclibre.org/consultar/python/img/turtle/turtle-dot-2.png)
+![](../Photos/ManualPython/Libreria_Turtle/Dot_2.PNG)
 
 - *circle(radio, grados, pasos)* : Permite dibujar una curva, estando el centro de la curva a la izquierda perpendicularmente a donde esté apuntado el cursor. 
 ~~~~ python
 turtle.circle(80)   # circulo de radio = 80
 ~~~~
-![](https://media.geeksforgeeks.org/wp-content/uploads/20200712121822/circle.gif)
+![](../Photos/ManualPython/Libreria_Turtle/Circulo_1.GIF)
 
 ~~~~ python
 turtle.circle(80, 180)  # semi-circulo de radio = 80
 ~~~~
-![](https://media.geeksforgeeks.org/wp-content/uploads/20200712122137/arc.gif)
+![](../Photos/ManualPython/Libreria_Turtle/Circulo_2.GIF)
 
 ~~~~ python
 turtle.circle(80, 360, 5)   # circulo de radio = 80 con solo 5 puntos uniformemente distribuidos (pentágono)
 ~~~~
-![](https://media.geeksforgeeks.org/wp-content/uploads/20200712122535/steps.gif)
+![](../Photos/ManualPython/Libreria_Turtle/Circulo_3.GIF)
 > ⚠️ Si no se dibuja una "curva" completa (360º), el puntero permancerá en la posición y giro finales.
 
 > ⚠️ Si se indica el número de pasos (polígono) y la curva es cerrada (360º), el puntero se encontrará en la misma posición y ángulo que al comienzo de dibujar la curva, aunque el tramo final sea una línea recta.
@@ -4370,7 +4370,7 @@ turtle.goto(0, 50)
 turtle.goto(0, 0)
 turtle.end_fill()
 ~~~~
-![](https://www.mclibre.org/consultar/python/img/turtle/turtle-fill-1.png)
+![](../Photos/ManualPython/Libreria_Turtle/Fill_1.PNG)
 
 ~~~~ python
 turtle.hideturtle()
@@ -4384,7 +4384,7 @@ turtle.goto(150, 0)
 turtle.goto(0, 0)
 turtle.end_fill()
 ~~~~
-![](https://www.mclibre.org/consultar/python/img/turtle/turtle-fill-4.png)
+![](../Photos/ManualPython/Libreria_Turtle/Fill_2.PNG)
 
 > ⚠️ Realmente no es necesario dibujar la figura completa ya que Python rellena la figura aunque no se cierre la figura (es como si Python uniera el último punto de la figura con el primero).
 > ~~~~ python
@@ -4398,16 +4398,7 @@ turtle.end_fill()
 > turtle.goto(0, 50)
 > turtle.end_fill()
 > ~~~~
-> ![](https://www.mclibre.org/consultar/python/img/turtle/turtle-fill-3.png)
-
-
-
-
-
-
-
-
-
+> ![](../Photos/ManualPython/Libreria_Turtle/Fill_3.PNG)
 
 
 ## **[<](#manual-python)**
@@ -4422,7 +4413,7 @@ raiz.mainloop() # mantiene la ventana abierta indefinidamente
 ~~~~
 > ⚠️ *mainloop()* debe ir al final del código para que no se cierre la ventana.
 
-![](https://pythonprogramming.net/static/images/basics/basic-tkinter-python3-window.png)
+![](../Photos/ManualPython/Libreria_Tkinter/Ventana.PNG)
 
 En caso de que se quiera lanzar un programa sin saber si se está instalado la librería Tkinter, lo mejor será anticiparnos a estos casos con una excepción.
 ~~~~ python
@@ -4500,9 +4491,9 @@ box2.pack()
 
 root.mainloop()
 ~~~~
-![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-basics.png)
+![](../Photos/ManualPython/Libreria_Tkinter/Pack.PNG)
 > ⚠️ El punto de origen de coordenadas (x,y) es la esquina superior izquierda.  
-![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-coordinates.png)
+> ![](../Photos/ManualPython/Libreria_Tkinter/PackCoordenadas.PNG)
 
 #### Text
 Widget que permite introducir un texto largo en pantalla.
@@ -4528,7 +4519,7 @@ def funcionBoton():
 Boton = tk.Button(frame, text="Texto", command=lambda:funcionBoton) 
 Boton.pack()
 ~~~~
-![](EjemploButton.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/Button.PNG)
 
 #### Radiobutton
 Widget que introduce una lista de opciones de selección de respuesta única.
@@ -4539,7 +4530,7 @@ tk.Radiobutton(frame, text="Option 1", variable=varOption, value=1).pack()
 tk.Radiobutton(frame, text="Option 2", variable=varOption, value=2).pack()
 tk.Radiobutton(frame, text="Option 3", variable=varOption, value=3).pack()
 ~~~~
-![](EjemploRadiobutton.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/Radiobutton.PNG)
 
 #### Checkbutton
 Widget que introduce una lista de opciones de selección de respuesta multiple.
@@ -4552,7 +4543,7 @@ tk.Checkbutton(frame, text="Option 1", variable=varOption1, onvalue=1, offvalue=
 tk.Checkbutton(frame, text="Option 2", variable=varOption2, onvalue=1, offvalue=0).pack()
 tk.Checkbutton(frame, text="Option 3", variable=varOption3, onvalue=1, offvalue=0).pack()
 ~~~~
-![](EjemploCheckbutton.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/Checkbutton.PNG)
 
 #### Menu
 Widget que permite añadir una barra de menú con una lista de opciones (submenús) en cada elemento creado.
@@ -4573,8 +4564,8 @@ menu.add_cascade(label="Archivo", menu=menuArchivo)
 menu.add_cascade(label="Edicion", menu=menuEdicion)
 menu.add_cascade(label="Ayuda", menu=menuAyuda)
 ~~~~
-![](EjemploMenu.PNG)
-![](EjemploMenu2.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/Menu_1.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/Menu_2.PNG)
 > ⚠️ Si se quiere separar los distintos submenús dentro de un misco menú para crear y diferenciar grupos de opciones, tan solo hay que añadir entre los submenús a separar el código:
 > ~~~~ python
 > menu.add_command(label="Submenu1")
@@ -4595,11 +4586,11 @@ messagebox.askquestion("Titulo", "Pregunta")        # devuelve los valores "yes"
 messagebox.askokcancel("Titulo", "Pregunta")        # devuelve los valores <True> ó <False>
 messagebox.askretrycancel("Titulo", "Pregunta")     # devuelve los valores <True> ó <False>
 ~~~~
-![](EjemploVentanaEmergente.PNG)
-![](EjemploVentanaEmergente2.PNG)
-![](EjemploVentanaEmergente3.PNG)
-![](EjemploVentanaEmergente4.PNG)
-![](EjemploVentanaEmergente5.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/VentanaEmergente_1.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/VentanaEmergente_2.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/VentanaEmergente_3.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/VentanaEmergente_4.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/VentanaEmergente_5.PNG)
 
 #### Abrir archivos
 ~~~~ python
@@ -4607,7 +4598,7 @@ from tkinter import filedialog
 
 filedialog.askopenfilename(title="Titulo", initialdir="C:/", filetypes=(("Ficheros de Excel" , "*xlsx"), ("Ficheros de texto" , "*.txt")))  # devuelve la ruta del fichero seleccionado
 ~~~~
-![](EjemploFiledialog.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/FileDialog.PNG)
 > ⚠️ Por defecto, se abre la ruta *📄 > Este equipo > Documentos*
 
 #### Comandos de configuración
@@ -4616,20 +4607,20 @@ filedialog.askopenfilename(title="Titulo", initialdir="C:/", filetypes=(("Ficher
 variableLabel.place(x=50, y=50)
 cuadroTexto.place(x=100, y=50)
 ~~~~
-![](EjemploPlace.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/place_1.PNG)
 > ⚠️ Si x,y son iguales en dos elementos, la salida los colocará uno al lado del otro por orden de declaración. Pero si una posición de un elemento está dentro del espacio de otro, la salida los superpondrá según el orden en los que hayan sido declarados.  
 > ~~~~ python
 > cuadroTexto.place(x=100, y=50)
 > variableLabel.place(x=110, y=50)
 > ~~~~
-> ![](EjemploPlace2.PNG)
+> ![](../Photos/ManualPython/Libreria_Tkinter/place_2.PNG)
 
 - *.grid(row=fila, column=columna)* : Divide el frame en filas y columnas, pero a nivel conceptual para ordenar elementos. El orden de filas y columnas funciona igual que las listas, siendo la primera fila y columna la 0.
 ~~~~ python
 variableLabel.grid(row=0, column=0)
 cuadroTexto.grid(row=0, column=1)
 ~~~~
-![](EjemploGrid.PNG)
+![](../Photos/ManualPython/Libreria_Tkinter/grid.PNG)
 > ⚠️ Si se quiere que los elementos se organicen en un dirección (texto pegado arriba, derecha, abajo-izquierda, etc) solo hay que añadir el parámetro *sticky=*. Funciona igual que *anchor*.
 
 - *.pack()* : Empaqueta el widget dentro del frame *frame* asignado y permite modificar la posición, espacio y relleno de los widgets.
@@ -4637,12 +4628,13 @@ cuadroTexto.grid(row=0, column=1)
 > ~~~~ python
 > box1.pack(ipadx=999, ipady=999)
 > ~~~~
+>
 > **Ejemplo**
 > ~~~~ python
 > box1.pack(ipadx=10, ipady=10)
 > box2.pack(ipadx=10, ipady=10)
 > ~~~~
-> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-internal-padding.png)  
+> ![](../Photos/ManualPython/Libreria_Tkinter/ipad.PNG)
 
 > + *fill* : Rellena el espacio de un widget horizontalmente, verticalmente o ambos.
 > ~~~~ python
@@ -4651,12 +4643,13 @@ cuadroTexto.grid(row=0, column=1)
 > frame.pack(fill="both")
 > frame.pack(fill="none")
 > ~~~~
+>
 > **Ejemplo**
 > ~~~~ python
 > box1.pack(ipadx=20, ipady=20, fill='x')
 > ~~~~
-> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-fill-spaces.png)
-> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-fill-x.png)
+> ![](../Photos/ManualPython/Libreria_Tkinter/fill_1.PNG)
+> ![](../Photos/ManualPython/Libreria_Tkinter/fill_2.PNG)
 
 > + *expand* : Aumenta el espacio disponible de un frame/widget todo lo posible. El espacio estará delimitado por la posición y espacio de otros widgets.
 > ~~~~ python
@@ -4665,29 +4658,31 @@ cuadroTexto.grid(row=0, column=1)
 > frame.pack(expand=False)
 > frame.pack(expand=0)
 > ~~~~
+>
 > **Ejemplo**
 > ~~~~ python
 > box1.pack(ipadx=20,ipady=20,expand=True)
 > ~~~~
-> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand.png)
+> ![](../Photos/ManualPython/Libreria_Tkinter/expand_1.PNG)
 > ~~~~ python
 > box1.pack(ipadx=20, ipady=20, fill="both", expand=True)
 > ~~~~
-> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand-and-fill.png)
+> ![](../Photos/ManualPython/Libreria_Tkinter/expand_2.PNG)
 > ~~~~ python
 > box1.pack(ipadx=20, ipady=20, fill="both", expand=True)
 > box2.pack(ipadx=20, ipady=20, expand=True)
 > ~~~~
-> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-expand-space-evenly.png)
+> ![](../Photos/ManualPython/Libreria_Tkinter/expand_3.PNG)
 
 > + *anchor* : Ancla el widget en base a los puntos cardinales como puntos de referencia dentro de su propio espacio disponible.  
-> ![](https://www.tutorialspoint.com/python/images/tkanchor.jpg)
+> ![](../Photos/ManualPython/Libreria_Tkinter/anchorCoordenadas.JPG)  
+>
 > **Ejemplo**
 > ~~~~ python
 > box1.pack(ipadx=20, ipady=20, anchor="e",  expand=True)
 > box2.pack(ipadx=20, ipady=20, anchor="w",  expand=True)
 > ~~~~
-> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-anchor-demo.png)
+> ![](../Photos/ManualPython/Libreria_Tkinter/anchor.PNG)
 
 > + *side* : Alinea el espacio del widget.
 > ~~~~ python
@@ -4701,7 +4696,7 @@ cuadroTexto.grid(row=0, column=1)
 > box1.pack(ipadx=20, ipady=20, fill="both", expand=True, side="left")
 > box2.pack(ipadx=20, ipady=20, fill="both", expand=True) # side="top"
 > ~~~~
-> ![](https://www.pythontutorial.net/wp-content/uploads/2020/11/tkinter-pack-side-left.png)
+> ![](../Photos/ManualPython/Libreria_Tkinter/side.PNG)
 
 > + *padx* / *pady* : Rellena externamente los widgets horizontalmente y verticalmente.
 > ~~~~ python
@@ -4712,7 +4707,7 @@ cuadroTexto.grid(row=0, column=1)
 > box1.pack(ipadx=20, ipady=20, padx=20, pady=20, fill="both", expand=True)
 > box2.pack(ipadx=20, ipady=20, padx=20, pady=20, fill="both", expand=True)
 > ~~~~
-> ![](https://www.pythontutorial.net/wp-content/uploads/2022/09/tkinter-pack-paddings.png)
+> ![](../Photos/ManualPython/Libreria_Tkinter/pad.PNG)
 
 
 ## **[<](#manual-python)**
@@ -4805,8 +4800,6 @@ Sirven para poder especificar secuencias especiales y sets.
 ~~~~
 
 
-
-
 ## **[<](#manual-python)**
 ## Depuración de código
 ---
@@ -4828,7 +4821,7 @@ Python dispone del módulo *pyd* para depurar programas, pero es mucho más cóm
 #### Depuración en Visual Studio Code
 Antes de iniciar la depuración de un programa en VSCode hay que establecer algún punto de parada. Para ello basta con hacer click en le margen izquierdo de la ventana con del código a la altura de la línea donde se quiere parar la ejecución del programa.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/break-point.png)
+![](../Photos/ManualPython/Depuracion_Codigo/BreakPoint.PNG)
 
 Para iniciar la depuración de un programa en VSCode hay que hacer clic sobre el botón ![](https://aprendeconalf.es/docencia/python/manual/img/debug-button.png) o pulsar la combinación de teclas (Ctr+Shift+D).
 
@@ -4838,10 +4831,10 @@ La depuración comenzará iniciando la ejecución del programa desde el inicio h
 
 Una vez iniciado el proceso de depuración, se puede avanzar en la ejecución del programa haciendo uso de la barra de depuración que contiene botones con los principales comandos de depuración.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/debbuger-bar.png)
+![](../Photos/ManualPython/Depuracion_Codigo/DebbugerBar.PNG)
 
 Durante la ejecución del programa, se puede ver el contenido de las variables del programa en la ventana del estado de las variables.
 
 El usuario también puede introducir expresiones y ver cómo se evalúan durante la ejecución del programa en la ventana de vista de expresiones.
 
-![](https://aprendeconalf.es/docencia/python/manual/img/debbuger-estado-variables.png)
+![](../Photos/ManualPython/Depuracion_Codigo/DebbugerEstadoVariables.PNG)
