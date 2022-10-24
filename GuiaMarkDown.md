@@ -379,7 +379,7 @@ Si queremos ir a un apartado concreto del documento tan solo hay que aplicar la 
 > ~~~~
 > [Hola Mundo!](../Python/Ejercicios Alf/01 Tipos de Datos Simples/Ejercicio_01-01.py)
 > ~~~~
-> [Hola Mundo!](../Python/Ejercicios Alf/01 Tipos de-Datos Simples/Ejercicio_01-01.py)
+> [Hola Mundo!](../Python/Ejercicios%20Alf/01%20Tipos%20de%20Datos%20Simples/Ejercicio_01-01.py)
 
 #### Imágenes
 Para agregar imágenes se trataría de un simbolo de exlamación (!), nombre entre corchetes y la dirección en los documentos (sin espacios) o ***URL***
