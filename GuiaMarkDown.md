@@ -124,11 +124,11 @@ Poner entre virgulillas (\~[  ]~) el texto deseado sin espacios ni al principio 
 Poner entre acentos circunflejos (\^[  ]^) el texto deseado sin espacios ni al principio ni al final: ^superíndice^
 
 #### Color
-Escribir **\<span style = "color: *'color deseado (en inglés)'*">** y **\</span>** entre el texto al que se quiere aplicar el color.  
+Escribir **\<span style = "color: *'color deseado (en inglés)'*">** y **\</span>** entre el texto al que se quiere aplicar el color: 
 <span style = "color: red"> rojo </span> / <span style = "color: blue"> azul </span> / <span style = "color: green"> verde </span> / <span style = "color: orange"> naranja </span> / <span style = "color: purple"> morado </span>
 
 #### Tipografía
-Escribir **\<span style = "font-family: *'nombre de la tipografía'*">** y **\</span>** entre el texto al que se le quiere cambiar la tipografía.  
+Escribir **\<span style = "font-family: *'nombre de la tipografía'*">** y **\</span>** entre el texto al que se le quiere cambiar la tipografía: 
 <span style = "font-family: Papyrus"> Papyrus </span> / <span style = "font-family: Georgia"> Georgia </span> / <span style = "font-family: Arial Black"> Arial Black </span> / <span style = "font-family: Calibri"> Calibri </span> / <span style = "font-family: Script"> Script </span>
 
 ## LISTAS
@@ -188,7 +188,7 @@ Se trataría de tabular al mismo nivel los elementos que se deseen que pertenezca
 
 ## TABLAS
 ---
-Para crear una tabla hay que añadir tantos | | como columnas se quieran, y en la siguiente fila, tantos |-| como haya en la fila de arriba. En las filas posteriores, siempe que las filas estén seguidas (sin filas vacías), todo lo que se encuentre entre dos | será tomado como columna de la tabla.
+Para crear una tabla hay que añadir tantos | | como columnas se quieran, y en la siguiente fila, tantos |-| como haya en la fila de arriba. En las filas posteriores, siempre que las filas estén seguidas (sin filas vacías), todo lo que se encuentre entre dos | será tomado como columna de la tabla.
 
 ~~~~
 |Título 1|Título 2|Título 3|  
@@ -342,7 +342,7 @@ La llamada de un [encabezado](#encabezados) del propio documento se forma a part
 
 [Guía Markdown](#guía-markdown)
 
-> **NOTA:** las tildes en la llamada del nombre del encabezado no funcionan directamente en *Markdown*, pero sí en la preview de **Azure**.
+> **NOTA:** las tildes en la llamada del nombre del encabezado no funcionan directamente en *Markdown*, pero sí en la preview de **Azure** o **GitHub**.
 
 #### Referencias
 
@@ -364,17 +364,22 @@ Se trata de links especiales declarados dentro del propio documento de *Markdown
 [link 2]: #índice "vuelta al principio"
 
 #### Documentos
-El formato es parecido al de [enlaces web](#enlaces-web) pero esta vez poniendo la dirección del documento dentro de nuestros archivos.
+El formato es parecido al de [enlaces web](#enlaces-web) pero esta vez poniendo la dirección del documento dentro de nuestros archivos o simplemente escribiendo el nombre del documento si se encuentra en la misma ruta que el archivo actual.
 ~~~~
-[Notas](../doc/Apuntes/notas.md)
+[Manual de Python](ManualPython.md)
 ~~~~
-[Notas](../Apuntes/notas.md)
+[Manual de Python](ManualPython.md)
 
 Si queremos ir a un apartado concreto del documento tan solo hay que aplicar la [llamada de encabezados](#llamada-de-encabezados) al final.
 ~~~~
-[Notas](../Apuntes/notas.md#subida-a-producción)
+[Manual de Python - Tipos de datos Primitivos Simples](ManualPython.md##tipos-de-datos-primitivos-simples)
 ~~~~
-[Notas - Subida a producción](../Apuntes/notas.md#subida-a-producción)
+[Manual de Python - Tipos de datos Primitivos Simples](ManualPython.md##tipos-de-datos-primitivos-simples)
+> Si el archivo al que queremos acceder se encuentra una o varias carpetas más atrás, tan solo hay que poner *"../"* al comienzo de la ruta.
+> ~~~~
+> [Hola Mundo!](../Python/EjerciciosAlf/01-Tipos-de-Datos-Simples/Ejercicio_01-01.py)
+> ~~~~
+> [Hola Mundo!](../Python/EjerciciosAlf/01-Tipos-de-Datos-Simples/Ejercicio_01-01.py)
 
 #### Imágenes
 Para agregar imágenes se trataría de un simbolo de exlamación (!), nombre entre corchetes y la dirección en los documentos (sin espacios) o ***URL***
