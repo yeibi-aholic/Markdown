@@ -1827,7 +1827,7 @@ La programación orientada a objetos permite simplificar la estructura y la lóg
 > - **Atributos** => Número de la tarjeta, titular, balance, fecha de caducidad, pin, entidad emisora, estado (activa o no), etc.
 > - **Métodos** => Activar, pagar, renovar, anular.
 
-![](Photos\ManualPython\Programacion_Orienta_A_Objetos\Ejemplo.png)
+![](..\Photos\ManualPython\Programacion_Orienta_A_Objetos\Ejemplo.png)
 
 #### Acceso a los atributos y métodos de un objeto
 - *dir(objeto)* : Devuelve una lista con los nombres de los atributos y métodos del objeto *objeto*.
