@@ -3816,7 +3816,7 @@ El tipo de mezcla puede ser
 ---
 [Matplotlib](https://matplotlib.org/) es una librería de Python especializada en la creación de gráficos en dos dimensiones.
 
-![](../Photos/ManualPython/Libreria_Matplotlib/MatplotlibLogo.PNG)
+![](..\Photos\ManualPython\Libreria_Matplotlib\MatplotlibLogo.PNG)
 
 Permite crear y personalizar los tipos de gráficos más comunes, entre ellos:
 - Diagramas de barras
