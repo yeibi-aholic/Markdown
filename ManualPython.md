@@ -21,8 +21,9 @@
 19. **[Librería Matplotlib](#librería-matplotlib)**
 20. **[Librería Turtle](#librería-turtle)**
 21. **[Librería Tkinter](#librería-tkinter)**
-22. **[Expresiones regulares](#expresiones-regulares)**
-23. **[Depuración de código](#depuración-de-código)**
+22. **[Librería Pygame](#librería-pygame)**
+23. **[Expresiones regulares](#expresiones-regulares)**
+24. **[Depuración de código](#depuración-de-código)**
 
 ## **[<](#manual-python)**
 ## Introducción a Python
@@ -4708,6 +4709,36 @@ cuadroTexto.grid(row=0, column=1)
 > box2.pack(ipadx=20, ipady=20, padx=20, pady=20, fill="both", expand=True)
 > ~~~~
 > ![](Photos/ManualPython/Libreria_Tkinter/pad.PNG)
+
+
+## **[<](#manual-python)**
+## Librería Pygame
+---
+[Pygame](https://www.pygame.org/news) es un conjunto de módulos del lenguaje Python que permiten la creación de videojuegos en dos dimensiones de una manera sencilla. Está orientado al manejo de sprites.
+![](Photos/ManualPython/Libreria_Pygame/PygameLogo.PNG)
+
+- *init()* : Inicializa todos los módulos de pygame importados.
+> Si algún módulo no se puede importar, no se mostrará ninguna excepción, pero se devolverá una tupla. El primer elemento es el número de módulos importados correctamente y el segundo elemento es el número de importaciones fallidas.
+
+> ⚠️ Tal vez se desee inicializar diferentes módulos por separado para mejorar la velocidad de ejecución del programa, o no cargar módulos que no se utilizan temporalmente.
+
+> Está bien llamar al método init () repetidamente, y no habrá efectos negativos. Incluso si ha llamado a pygame.quit (), es posible desinstalar todos los módulos.
+
+-  *quit()* : Desinstala todos los módulos importados de pygame.
+> Cuando se cierra el intérprete de Python, este método se llamará incondicionalmente, por lo que su programa no necesita llamar a este método a menos que desee terminar el recurso de pygame y continuar realizando otras funciones. 
+
+> No es ningún problema ejecutar este método varias veces.
+
+- *get_error()* : Módulo de excepción estándar de pygame.
+> Obtiene un mensaje de error interno mantenido por SDL. Esta información se le proporcionará cuando se genere la excepción estándar de pygame.
+
+- *set_error()* : Establece la información de error actual.
+> Establece un mensaje de error interno mantenido por SDL. Esta información se le proporcionará cuando se genere la excepción estándar de pygame.
+
+- *get_sdl_version()* : Obtiene el número de versión de SDL.
+> Devuelve los 3 dígitos de la versión relevante de la biblioteca SDL. Esta versión se genera en tiempo de compilación. 
+
+> ⚠️ Este método se puede utilizar para saber qué componente no funciona correctamente.
 
 
 ## **[<](#manual-python)**
