@@ -462,7 +462,7 @@ UPDATE nombre_tabla
 
 
 ## **[^](#manual-sql)**
-## BÚSQUEDA Y SELECCIÓN DE DATOS EN SQL
+## BÚSQUEDA Y SELECCIÓN DE DATOS
 ---
 ### **[^](#manual-sql)**
 ### Selección de tablas
